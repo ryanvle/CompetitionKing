@@ -1,0 +1,19 @@
+{
+  "name": "competitionking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "dev": "node ./src/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/ryanvle/CompetitionKing"
+  },
+  "author": "Ryan L, Rolen L",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.4.2"
+  }
+}
