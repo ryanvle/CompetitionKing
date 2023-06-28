@@ -1,7 +1,5 @@
 --tblGENDER
 CREATE TABLE tblGENDER (
-    GenderID SERIAL PRIMARY KEY,
-    GenderName varchar(50) NOT NULL
     GenderID INT AUTO_INCREMENT,
     GenderName varchar(50) NOT NULL,
     
@@ -10,8 +8,6 @@ CREATE TABLE tblGENDER (
 
 --tblLEVEL
 CREATE TABLE tblLEVEL (
-    LevelID SERIAL PRIMARY KEY,
-    LevelName varchar(30) NOT NULL
     LevelID INT AUTO_INCREMENT,
     LevelName varchar(30) NOT NULL,
     
@@ -20,7 +16,6 @@ CREATE TABLE tblLEVEL (
 
 --tblPERSON
 CREATE TABLE tblPERSON (
-    PersonID SERIAL PRIMARY KEY,
     PersonID INT AUTO_INCREMENT,
     GenderID INT NOT NULL,
     LevelID INT NOT NULL,
@@ -28,13 +23,6 @@ CREATE TABLE tblPERSON (
     LastName varchar(60) NOT NULL,
     Age INT,
     Email varchar(255) UNIQUE NOT NULL,
-
-    FOREIGN KEY (GenderID)
-        REFERENCES tblGENDER(GenderID),
-    
-    FOREIGN KEY (LevelID)
-        REFERENCES tblLEVEL (LevelID)
-);
     
     PRIMARY KEY(PersonID)
 );
