@@ -1,16 +1,14 @@
 const express = require("express")
 const app = express()
-const sql = require('./services/SqlConnection')
-let NewSql = new sql();
-NewSql.EstablishConnection()
-
-
-
-
+const userRoutes = require('./api-routes/userRoutes')
+const CompetitionRoutes = require('./api-routes/CompetitionRoutes')
 
 app.use(express.urlencoded())
 app.use(express.json())
 
-const userRoutes = require('./api-routes/userRoutes')
 app.use('/users', userRoutes);
+app.use('/Competition', CompetitionRoutes)
+app.get('/', (request, response) => {
+    response.json({ info: 'Node.js, Express, and MySQL API' })
+})
 app.listen(80);
