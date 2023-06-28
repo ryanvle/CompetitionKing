@@ -3,12 +3,12 @@ const dbusers = require("../services/Users")
 const router = express.Router();
 
 
-router.post('/CreateNewUser', function (req, res) {
-    console.log(dbusers.CreateNewUser())
-    let name = req.query["Name"];
-    console.log(req.query)
-    console.log(name)
-    res.send('Success');
+router.get('/CreateNewUser', function (req, res) {
+    res.send(dbusers.CreateNewUser())
+});
+
+router.get('/GetAllUsers', function (req, res) {
+    res.send(dbusers.GetAllUsers())
 });
 
 router.post('/CreateAdminUser', function (req, res) {
