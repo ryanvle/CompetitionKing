@@ -3,16 +3,20 @@ const dbusers = require("../services/Users")
 const router = express.Router();
 
 
-router.get('/CreateNewUser', function (req, res) {
+router.post('/CreateNewUser', function (req, res) {
     res.send(dbusers.CreateNewUser())
 });
 
-router.get('/GetAllUsers', function (req, res) {
-    res.send(dbusers.GetAllUsers())
+router.get('/GetAllUsers', async function (req, res) {
+    res.send(await dbusers.GetAllUsers())
 });
 
 router.post('/CreateAdminUser', function (req, res) {
     res.send('Post user controller');
 });
+
+router.delete('/DeleteUser', function(req, res) {
+    res.send("Delete user controller")
+})
 
 module.exports = router;

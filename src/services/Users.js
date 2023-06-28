@@ -1,25 +1,24 @@
 const connection = require('./SqlConnection')
 
 
-const CreateNewUser = () => {
+const CreateNewUser = async () => {
     return "Not created";
 }
 
-const GetAllUsers = () => {
-    const sql = "SELECT * FROM tblGENDER";
-    const [rows] = connection.promise().query(sql);
-    return rows;
+const GetAllUsers = async () => {
+    let rows = await connection.promise().query('select * from defaultdb.tblPERSON');
+    return rows[0];
 }
 
-const UpdateUser = () => {
+const UpdateUser = async () => {
     return "Not created";
 }
 
-const DeleteUser = () => {
+const DeleteUser = async () => {
     return "Not created";
 }
 
-const CreateAdminUser = () => {
+const CreateAdminUser = async () => {
     return "Not created"
 }
 
