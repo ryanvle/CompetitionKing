@@ -1,6 +1,5 @@
 --tblGENDER
 INSERT INTO tblGENDER(GenderName)
-<<<<<<< HEAD
 VALUES ('Male')
 
 INSERT INTO tblGENDER(GenderName)
@@ -48,4 +47,3 @@ VALUES('Compulsory Long Fist');
 INSERT INTO tblFORM(FormName)
 VALUES('Compulsory Southern Fist');
 
->>>>>>> 65cac7f0bee73f0676cccda0c72ec98a3ee6d301
