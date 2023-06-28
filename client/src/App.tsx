@@ -45,7 +45,7 @@ function App() {
           <Route path='rings' element = {<Rings/>}/>
           <Route path='rules' element = {<Rules/>}/>
         </Route>
-        
+
         <Route path='/register' element = {<Register/>}>
           <Route path='competitorSignUp' element = {<CompetitorSignUp/>}/>
           <Route path='payment' element = {<Payment/>}/>
