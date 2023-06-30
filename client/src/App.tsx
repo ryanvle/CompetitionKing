@@ -20,7 +20,7 @@ import Preview from './pages/createCompetition/preview'
 import Restrictions from './pages/createCompetition/restrictions'
 import Rings from './pages/createCompetition/rings'
 import Rules from './pages/createCompetition/rules'
-// import HeadJudge from './pages/competition/headJudge'
+import HeadJudge from './pages/competition/headJudge'
 import Judge from './pages/competition/judge'
 import RingManagement from './pages/competition/ringManagement'
 import Tv from './pages/competition/tv'
@@ -55,7 +55,7 @@ function App() {
         <Route path='/competition' element = {<Competition/>}>
           <Route index element = {<AdminPage/>}/>
           <Route path='ringManagement' element = {<RingManagement/>}/>
-          {/* <Route path='headJudge' element = {<HeadJudge/>}/> */}
+          <Route path='headJudge' element = {<HeadJudge/>}/>
           <Route path='judge' element = {<Judge/>}/>  
           <Route path='tv' element = {<Tv/>}/>
           <Route path='checkIn' element = {<CheckIn/>}/>

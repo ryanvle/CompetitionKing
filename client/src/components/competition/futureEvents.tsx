@@ -33,7 +33,7 @@ function FutureEvent(props:Props){
 
 
     return(
-        <div key={EventName}>
+        <div>
             <button onClick={handleShowHideFutureCompetitors}  id={EventName+"r"}>{EventName}</button>
             <br/>
             {temp}

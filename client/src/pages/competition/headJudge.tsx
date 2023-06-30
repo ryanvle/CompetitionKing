@@ -1,5 +1,5 @@
 import { ChangeEvent, useState, useId} from "react";
-import FutureEvent from "../../components/futureEvents";
+import FutureEvent from "../../components/competition/futureEvents";
 
 
 function HeadJudge(){
