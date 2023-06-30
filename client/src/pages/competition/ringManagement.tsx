@@ -1,4 +1,5 @@
 import RingManagementColumn from "../../components/competition/ringManagementColumn";
+import { Link } from "react-router-dom";
 
 function RingManagement(){
 
@@ -20,6 +21,12 @@ function RingManagement(){
                 <RingManagementColumn ringNumber={2}/>
                 <RingManagementColumn ringNumber={3}/>
             </div>
+
+            <br/>
+            <br/>
+            <br/>
+            <button><Link to={"/competition/tv"}> TV Mode</Link></button>
+            <button>Post/Send</button>
 
         </>
     );

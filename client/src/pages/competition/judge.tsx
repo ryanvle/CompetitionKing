@@ -1,5 +1,4 @@
 import { ChangeEvent, useState, useId} from "react";
-import FutureEvent from "../../components/competition/futureEvents";
 import FutureEventsList from "../../components/competition/futureEventsList";
 
 
