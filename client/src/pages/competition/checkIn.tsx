@@ -3,14 +3,14 @@ import { ChangeEvent, useState} from "react";
 
 
 function CheckIn(){
-    const [searchInput, setSearchInput] = useState<string>("");  
+    const [searchInput, setSearchInput] = useState<string>("");
 
 
     const handleSearchInput = (evt: ChangeEvent<HTMLInputElement>):void => {
         setSearchInput(evt.target.value);
     }
 
-    const handleSearchButtonOnClick= ():void => { 
+    const handleSearchButtonOnClick= ():void => {
         console.log(searchInput);
     }
 
@@ -23,9 +23,8 @@ function CheckIn(){
             <h1>Check In</h1>
             <input type="text" onChange={handleSearchInput}></input>
             <button onClick={handleSearchButtonOnClick}>Enter</button>
-            
             <SignInPerson/>
-        
+
         </>
     );
 

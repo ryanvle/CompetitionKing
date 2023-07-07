@@ -22,10 +22,11 @@ import Rings from './pages/createCompetition/rings'
 import Rules from './pages/createCompetition/rules'
 import HeadJudge from './pages/competition/headJudge'
 import Judge from './pages/competition/judge'
-import RingManagement from './pages/competition/ringManagement'
+import Schedule from './pages/competition/schedule'
 import Tv from './pages/competition/tv'
-import AdminPage from './pages/competition/adminPage'
 import CheckIn from './pages/competition/checkIn'
+import EventInfo from './pages/competition/eventInfo'
+import ManageRings from './pages/competition/manageRings'
 
 function App() {
 
@@ -53,13 +54,15 @@ function App() {
         </Route>
 
         <Route path='/competition' element = {<Competition/>}>
-          <Route index element = {<AdminPage/>}/>
-          <Route path='ringManagement' element = {<RingManagement/>}/>
-          <Route path='headJudge' element = {<HeadJudge/>}/>
-          <Route path='judge' element = {<Judge/>}/>  
-          <Route path='tv' element = {<Tv/>}/>
+          {/* <Route index element = {<AdminPage/>}/> */}
+          <Route path='eventInfo' element = {<EventInfo/>}/>
+          <Route path='schedule' element = {<Schedule/>}/>
+          <Route path='manageRings' element = {<ManageRings/>}/>
           <Route path='checkIn' element = {<CheckIn/>}/>
+          <Route path='tv' element = {<Tv/>}/>
         </Route>
+        <Route path='/competition/headJudge' element = {<HeadJudge/>}/>
+        <Route path='competition/judge' element = {<Judge/>}/>
 
       </Routes>
     </>

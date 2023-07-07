@@ -28,13 +28,15 @@ function FutureEvent(props:Props){
 
 
         
-
+    
 
 
 
     return(
         <div>
-            <button onClick={handleShowHideFutureCompetitors}  id={EventName+"r"}>{EventName}</button>
+            <button onClick={handleShowHideFutureCompetitors}  id={EventName+"r"}>
+                {EventName} &emsp;&emsp; {nameList.length}/{nameList.length}
+            </button>
             <br/>
             {temp}
         </div>
