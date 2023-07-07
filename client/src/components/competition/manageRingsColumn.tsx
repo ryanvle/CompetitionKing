@@ -1,7 +1,7 @@
 import { useState} from 'react'
 import CurrentlyGoing from './currentlyGoing';
-import FutureEventsList from './futureEventsList';
 import DoneList from './doneList';
+import FutureEventsEditableList from './futureEventsEditableList';
 
 interface Props{
     ringNumber: number;
@@ -79,7 +79,7 @@ const ManageRingsColumn = (props:Props) => {
             <p>Roll Call: &emsp; &emsp;  {rollCall}</p>
 
             <CurrentlyGoing ringNumber={ringNumber}/>
-            <FutureEventsList ringNumber={ringNumber}/>
+            <FutureEventsEditableList ringNumber={ringNumber}/>
             <DoneList ringNumber={ringNumber}/>
         </div>
 

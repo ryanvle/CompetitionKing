@@ -3,6 +3,10 @@ import { ChangeEvent, useState } from "react";
 interface Props{
     eventName: string;
     nameList: string[];
+    onClickFunction: (evt: React.MouseEvent<HTMLButtonElement>)=>void;
+    isSelected: boolean;
+    indexForSelect:number;
+    inSelectMode: boolean;
 }
 
 
@@ -13,17 +17,23 @@ function FutureEventEditable(props:Props){
     const [nameList] = useState<string[]>(props.nameList); 
     const [EventName] = useState<string>(props.eventName); 
 
-    const [toggleEdit, setToggleEdit] = useState<boolean>(false);
+    const [toggleEdit, setToggleEdit] = useState<boolean>(  );
     const [addPersonInputText, setAddPersonInputText] = useState<string>("");
     
-    const handleShowHideFutureCompetitors = () => { 
-        setToggleEventExpanded(!toggleEventExpanded);
-        setToggleEdit(false)
+    const handleShowHideFutureCompetitors = (evt: React.MouseEvent<HTMLButtonElement>) => { 
+        if(! props.inSelectMode){
+            setToggleEventExpanded(!toggleEventExpanded);
+            setToggleEdit(false)
+
+        }
+        props.onClickFunction(evt);
     }
 
     const handleToggleEdit = ():void =>{
-        setToggleEdit(!toggleEdit)
-        setToggleEventExpanded(true)
+        if(! props.inSelectMode){
+            setToggleEdit(!toggleEdit)
+            setToggleEventExpanded(true)
+        }
     }
 
     const handleDeletePerson = (evt:React.MouseEvent<HTMLButtonElement>):void =>{
@@ -39,11 +49,16 @@ function FutureEventEditable(props:Props){
     }
 
     const handleAddPersonButton= ():void => {
-        console.log(addPersonInputText)
+        if(addPersonInputText === ""){
+            alert("please put in a name")
+        }
+        console.log("endpoint adds " + addPersonInputText)
+        setAddPersonInputText("");
     }
 
 
-    
+    const selectedBorder = props.isSelected && props.inSelectMode?
+    {border: '2px solid #DFC5FE' }: {}
 
 
 
@@ -62,7 +77,7 @@ function FutureEventEditable(props:Props){
 
         const addCompetitorElement: JSX.Element = toggleEdit?
             <div>
-                <input type="text" onChange={handleAddPersonInput}></input>
+                <input type="text" value={addPersonInputText} onChange={handleAddPersonInput}></input>
                 <button onClick={handleAddPersonButton}>+</button>
             </div>:
             <></>    
@@ -78,11 +93,11 @@ function FutureEventEditable(props:Props){
 
 
     return(
-        <div>
-            <button onClick={handleShowHideFutureCompetitors}  id={EventName+"r"}>
+        <div >
+            <button onClick={handleShowHideFutureCompetitors} value= {props.indexForSelect} id={EventName+"r"} style={selectedBorder}>
                 {EventName}&emsp;&emsp; {nameList.length}/{nameList.length}
             </button>
-            <button onClick={handleToggleEdit}>/</button>
+            <button onClick={handleToggleEdit } >/</button>
             <br/>
             {temp}
         </div>

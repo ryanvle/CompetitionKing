@@ -1,6 +1,7 @@
 import { ChangeEvent, useState, useId} from "react";
 import FutureEventsList from "../../components/competition/futureEventsList";
 import BackButton from "../../components/backButton";
+import ScheduleColumn from "../../components/competition/scheduleColumn";
 
 
 function Judge(){
@@ -82,8 +83,9 @@ function Judge(){
             </div>
 
             
-            <FutureEventsList ringNumber={ringNumber}/>
+            {/* <FutureEventsList ringNumber={ringNumber}/> */}
 
+            <ScheduleColumn ringNumber={ringNumber}/>
         </>
     );
 
