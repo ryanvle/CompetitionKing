@@ -16,7 +16,7 @@ function HeadJudge(){
 
     const [competitors, setCompetitors] = useState<string[]>(["Oey","Boey","Joey","Chloey"]); 
     const [category, setCategory] = useState<string>("Advanced Female fiveStance");
-    
+
     const [futureEventNames, setFutureEventNames] = useState<string[]>([
         "Advanced Adult Female Changquan",
         "Advanced Adult Female DaoShu",

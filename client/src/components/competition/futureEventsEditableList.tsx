@@ -6,17 +6,16 @@ interface Props{
 }
 
 
-
+//fetch info for this group of events here
 function FutureEventsEditableList(props:Props){
-
-    const [ringNumber, setRingNumber] = useState<number>();
+    const [eventGroupName, setEventGroupName] = useState<string>("Long Fist - International Compulsory Form (101)")
     const [otherRingNumbers, setOtherRingNumbers] = useState<number[]>([2,3]);
-    
 
     const [futureEventNames, setFutureEventNames] = useState<string[]>([
-        "Advanced Adult Female Changquan",
-        "Advanced Adult Female DaoShu",
-        "Advanced Adult Female GunShu",
+        "Long Fist - Beginner Adult Women (B.A.W)",
+        "Long Fist - Female Beginner Child (F.B.C)",
+        "Long Fist - Female Beginner Child (F.B.C)",
+        "Long Fist - Female Beginner Child (F.B.C)",
     ])
     const [futureEventsCompetitors, setFutureEventsCompetitors] = useState<string[][]>([
         ["Qoey","Woey","Roey","Toey",],
@@ -25,12 +24,18 @@ function FutureEventsEditableList(props:Props){
     ])
 
 
+    const [eventsShown, setEventsShown] = useState<boolean>(false);
+    //deal with editing shit
     const [toggleEdit, setToggleEdit] = useState<boolean>(false);
     const eventIsSelectedBuilder:boolean[] = new Array<boolean>(futureEventsCompetitors.length).fill(false);
     const [eventIsSelected, setEventIsSelected] = useState<boolean[]>(eventIsSelectedBuilder);
 
 
-    
+    const handleToggleShowEvents =():void=>{
+        setEventsShown(!eventsShown);
+    }
+
+
     const handleToggleEdit = ():void =>{
         setToggleEdit(!toggleEdit)
     }
@@ -53,9 +58,8 @@ function FutureEventsEditableList(props:Props){
                 }
             }
             setEventIsSelected(temp);
-            
         }
-        
+
     }
 
     const handleSendToOtherRing = (evt: React.MouseEvent<HTMLButtonElement>):void =>{
@@ -71,18 +75,20 @@ function FutureEventsEditableList(props:Props){
 
 
     let i:number = 0;
-    const futureCommpetitors:JSX.Element[] = []
-    while (i != futureEventsCompetitors.length){
-        futureCommpetitors.push(<FutureEventEditable 
-            key={i}
-            nameList={futureEventsCompetitors[i]}
-            eventName = {futureEventNames[i]}
-            onClickFunction = {handleEventSelected}
-            inSelectMode = {toggleEdit}
-            isSelected = {eventIsSelected[i]}
-            indexForSelect= {i}
-        />)
-        i++;
+    const EventsListElement:JSX.Element[] = []
+    if(eventsShown){
+        while (i != futureEventsCompetitors.length){
+            EventsListElement.push(<FutureEventEditable
+                key={i}
+                nameList={futureEventsCompetitors[i]}
+                eventName = {futureEventNames[i]}
+                onClickFunction = {handleEventSelected}
+                inSelectMode = {toggleEdit}
+                isSelected = {eventIsSelected[i]}
+                indexForSelect= {i}
+            />)
+            i++;
+        }
     }
 
     // editmode
@@ -117,14 +123,16 @@ function FutureEventsEditableList(props:Props){
     }else{
         editModeBottomButtons = <></>;
     }
-        
+
 
     return(
         <div>
-            <h2>Up Next <button onClick={handleToggleEdit}>/</button></h2>
-            
-            {futureCommpetitors}
+
+            <h2>{eventGroupName} <button onClick={handleToggleShowEvents}>v</button></h2>
+
+            {EventsListElement}
             {editModeBottomButtons}
+            <button onClick={handleToggleEdit}>Move Group</button>
         </div>
     );
 

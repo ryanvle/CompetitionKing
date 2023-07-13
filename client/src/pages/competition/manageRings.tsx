@@ -1,32 +1,28 @@
 import React, { useState } from 'react'
-import ManageRingsColumn from '../../components/competition/manageRingsColumn'
+import ManageRingsJudgeColumn from '../../components/competition/manageRingsJudgeColumn'
+import ManageRingsStaffColumn from '../../components/competition/manageRingsStaffColumn'
 
 const ManageRings = () => {
     const [ringCount, setRingCount] = useState<number>(3)
-    const [ringShown, setRingShown] = useState<number>(1)
 
 
-    const handleSwitchRing =(evt: React.MouseEvent<HTMLButtonElement>):void =>{
-        if(!("value" in evt.target) || typeof evt.target.value != "string"){
-            throw Error();
-        }
-        setRingShown(Number.parseInt(evt.target.value));
-    }
 
-    
-    const switchRingElements: JSX.Element[] = []
-    for (let i = 1; i <= ringCount; i++){
-        switchRingElements.push(
-            <button onClick={handleSwitchRing} value={i} key={i}>Ring {i}</button>
-        )
-    }
-    
 
     return (
-        <div >
-            {switchRingElements}
-            <ManageRingsColumn ringNumber={ringShown}/>
-
+        <div>
+            <div>
+                <h1>Manage Judges</h1>
+                <p>Click box to go to individual judges score cards</p>
+                <ManageRingsJudgeColumn ringNumber={1}/>
+                <ManageRingsJudgeColumn ringNumber={2}/>
+                <ManageRingsJudgeColumn ringNumber={3}/>
+            </div>
+            <div>
+                <h1>Manage Staff</h1>
+                <ManageRingsStaffColumn ringNumber={1}/>
+                <ManageRingsStaffColumn ringNumber={2}/>
+                <ManageRingsStaffColumn ringNumber={3}/>
+            </div>
 
         </div>
     )

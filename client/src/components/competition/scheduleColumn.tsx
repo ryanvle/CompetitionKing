@@ -10,17 +10,16 @@ interface Props{
 
 function ScheduleColumn(props:Props){
 
-    
-    const ringNumber=props.ringNumber; 
-    
+    const ringNumber=props.ringNumber;
+
 
 
     return(
         <div>
-                <h2>Ring {ringNumber}</h2>
-                
-                <CurrentlyGoing ringNumber={ringNumber}/>
+                <h2>Ring {ringNumber} Schedule</h2>
 
+                <FutureEventsEditableList ringNumber={ringNumber}/>
+                <FutureEventsEditableList ringNumber={ringNumber}/>
                 <FutureEventsEditableList ringNumber={ringNumber}/>
                 <DoneList ringNumber={ringNumber}/>
         </div>

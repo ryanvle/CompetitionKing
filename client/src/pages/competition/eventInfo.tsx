@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 
 
 function EventInfo(){
-    
-    const [eventName, setEventName] = useState<string>(); 
-    const [address, setAddress] = useState<string>(); 
-    const [date, setDate] = useState<string>(); 
-    const [description, setDescription] = useState<string>(); 
-    const [eventRules, setEventRules] = useState<string>(); 
-    const [fees, setFees] = useState<string>(); 
+
+    const [eventName, setEventName] = useState<string>();
+    const [address, setAddress] = useState<string>();
+    const [date, setDate] = useState<string>();
+    const [description, setDescription] = useState<string>();
+    const [eventRules, setEventRules] = useState<string>();
+    const [fees, setFees] = useState<string>();
 
     useEffect(() => {
         // fetch(url)
@@ -30,24 +30,24 @@ function EventInfo(){
         <div>
             <h1>Event Information</h1>
             <div>
-                <h2>{eventName}</h2>    
-                <p>{address}</p>    
-                <p>{date}</p>    
+                <h2>{eventName}</h2>
+                <p>{address}</p>
+                <p>{date}</p>
             </div>
 
             <div>
-                <h2>Description</h2>     
-                <p>{description }</p>    
+                <h2>Description</h2>
+                <p>{description }</p>
             </div>
 
             <div>
-                <h2>Event Rules</h2>    
-                <p>{eventRules}</p>   
+                <h2>Event Rules</h2>
+                <p>{eventRules}</p>
             </div>
 
             <div>
-                <h2>Event Fees</h2>    
-                <p>{fees}</p>   
+                <h2>Event Fees</h2>
+                <p>{fees}</p>
             </div>
         </div>
     );
