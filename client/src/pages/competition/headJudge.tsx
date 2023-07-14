@@ -1,6 +1,6 @@
 import { ChangeEvent, useState, useId} from "react";
 import FutureEvent from "../../components/competition/futureEvents";
-import BackButton from "../../components/backButton";
+import BackButton from "../../components/competition/backButton";
 import CurrentlyGoing from "../../components/competition/currentlyGoing";
 import FutureEventsEditableList from "../../components/competition/futureEventsEditableList";
 

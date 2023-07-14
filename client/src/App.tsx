@@ -27,6 +27,9 @@ import Tv from './pages/competition/tv'
 import CheckIn from './pages/competition/checkIn'
 import EventInfo from './pages/competition/eventInfo'
 import ManageRings from './pages/competition/manageRings'
+import Results from './pages/results'
+import FinishedEvents from './pages/competition/finishedEvents'
+import GrandChampion from './pages/competition/grandChampion'
 
 function App() {
 
@@ -54,15 +57,18 @@ function App() {
         </Route>
 
         <Route path='/competition' element = {<Competition/>}>
-          {/* <Route index element = {<AdminPage/>}/> */}
           <Route path='eventInfo' element = {<EventInfo/>}/>
           <Route path='schedule' element = {<Schedule/>}/>
           <Route path='manageRings' element = {<ManageRings/>}/>
           <Route path='checkIn' element = {<CheckIn/>}/>
-          <Route path='tv' element = {<Tv/>}/>
+          {/* <Route path='tv' element = {<Tv/>}/> */}
         </Route>
         <Route path='/competition/headJudge' element = {<HeadJudge/>}/>
         <Route path='competition/judge' element = {<Judge/>}/>
+        <Route path='competition/results' element = {<Results/>}>
+          <Route path='finishedEvents' element = {<FinishedEvents/>}/>
+          <Route path='grandChampion' element = {<GrandChampion/>}/>
+        </Route>
 
       </Routes>
     </>

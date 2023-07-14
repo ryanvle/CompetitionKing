@@ -3,10 +3,7 @@ import { ChangeEvent, useState } from "react";
 interface Props{
     eventName: string;
     nameList: string[];
-    onClickFunction: (evt: React.MouseEvent<HTMLButtonElement>)=>void;
-    isSelected: boolean;
-    indexForSelect:number;
-    inSelectMode: boolean;
+    
 }
 
 
@@ -19,21 +16,20 @@ function FutureEventEditable(props:Props){
 
     const [toggleEdit, setToggleEdit] = useState<boolean>(  );
     const [addPersonInputText, setAddPersonInputText] = useState<string>("");
-    
-    const handleShowHideFutureCompetitors = (evt: React.MouseEvent<HTMLButtonElement>) => { 
-        if(! props.inSelectMode){
-            setToggleEventExpanded(!toggleEventExpanded);
-            setToggleEdit(false)
 
-        }
-        props.onClickFunction(evt);
+    const handleShowHideFutureCompetitors = (evt: React.MouseEvent<HTMLButtonElement>) => {
+        // if(! props.inSelectMode){
+        setToggleEventExpanded(!toggleEventExpanded);
+        setToggleEdit(false)
+
+        // }
     }
 
     const handleToggleEdit = ():void =>{
-        if(! props.inSelectMode){
+        // if(! props.inSelectMode){
             setToggleEdit(!toggleEdit)
             setToggleEventExpanded(true)
-        }
+        // }
     }
 
     const handleDeletePerson = (evt:React.MouseEvent<HTMLButtonElement>):void =>{
@@ -57,21 +53,18 @@ function FutureEventEditable(props:Props){
     }
 
 
-    const selectedBorder = props.isSelected && props.inSelectMode?
-    {border: '2px solid #DFC5FE' }: {}
 
 
 
 
 
-    
 
 
+    //make the stuff that shows when you expand the event to see the competitors and stuff
     let temp:JSX.Element;
-
     if(toggleEventExpanded){
         const currentCommpetitorsElement:JSX.Element[] = toggleEdit?
-            nameList.map(competitor => <p key={competitor}>{competitor} 
+            nameList.map(competitor => <p key={competitor}>{competitor}
                 <button value={competitor} onClick={handleDeletePerson}>-</button></p>):
             nameList.map(competitor => <p key={competitor}>{competitor}</p>)
 
@@ -80,21 +73,23 @@ function FutureEventEditable(props:Props){
                 <input type="text" value={addPersonInputText} onChange={handleAddPersonInput}></input>
                 <button onClick={handleAddPersonButton}>+</button>
             </div>:
-            <></>    
+            <></>
         temp = <div>
             {currentCommpetitorsElement}
             {addCompetitorElement}
         </div>
-        
+
 
     }else{
         temp = <div></div>;
-    }        
+    }
 
 
     return(
         <div >
-            <button onClick={handleShowHideFutureCompetitors} value= {props.indexForSelect} id={EventName+"r"} style={selectedBorder}>
+            <button onClick={handleShowHideFutureCompetitors}
+
+             >
                 {EventName}&emsp;&emsp; {nameList.length}/{nameList.length}
             </button>
             <button onClick={handleToggleEdit } >/</button>

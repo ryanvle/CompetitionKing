@@ -10,6 +10,8 @@ function Schedule(){
     const [ringShown, setRingShown] = useState<number>(1)
 
 
+
+
     const handleSwitchRing =(evt: React.MouseEvent<HTMLButtonElement>):void =>{
         if(!("value" in evt.target) || typeof evt.target.value != "string"){
             throw Error();
@@ -17,7 +19,7 @@ function Schedule(){
         setRingShown(Number.parseInt(evt.target.value));
     }
 
-    
+
     const switchRingElements: JSX.Element[] = []
     for (let i = 1; i <= ringCount; i++){
         switchRingElements.push(
