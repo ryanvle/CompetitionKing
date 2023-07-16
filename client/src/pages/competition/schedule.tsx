@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Schedule(){
 
-    
+
 
     const [ringCount, setRingCount] = useState<number>(3)
     const [ringShown, setRingShown] = useState<number>(1)
@@ -17,6 +17,11 @@ function Schedule(){
             throw Error();
         }
         setRingShown(Number.parseInt(evt.target.value));
+    }
+
+    const handlePublishSchedule =(evt: React.MouseEvent<HTMLButtonElement>):void =>{
+        //idk yet
+        console.log("publish shit")
     }
 
 
@@ -39,8 +44,8 @@ function Schedule(){
             <br/>
             <br/>
             <br/>
-            <button><Link to={"/competition/tv"}> TV Mode</Link></button>
-            <button>Post/Send</button>
+            {/* <button><Link to={"/competition/tv"}> TV Mode</Link></button> */}
+            <button onClick={handlePublishSchedule}>Publish All Schedules</button>
 
         </>
     );

@@ -1,12 +1,17 @@
 import { ChangeEvent, useState, useId} from "react";
 import FutureEventsList from "../../components/competition/futureEventsList";
-import BackButton from "../../components/competition/backButton";
-import ScheduleColumn from "../../components/competition/scheduleColumn";
+import { Link } from "react-router-dom";
+
 
 
 function Judge(){
+    const queryParams = new URLSearchParams(window.location.search);
+    const judgeNum = queryParams.get("judgeNumber");
+    const ringNumQuery = queryParams.get("ringNumber");
+    if(ringNumQuery === null) throw Error;
+    const ringNumber:number =  Number.parseInt(ringNumQuery); 
+
     //States that are gonna be changed by endpoint
-    const [ringNumber, setRingNumber] = useState<number>(1);
     const [competitors, setCompetitors] = useState<string[]>(["Oey","Boey","Joey","Chloey"]);
     const [category, setCategory] = useState<string>("Advanced Female fiveStance");
     const [competitorIndex, setCompetitorIndex] = useState<number>(2);
@@ -38,13 +43,12 @@ function Judge(){
 
 
     //some logic stuff for rendering
-
     const currentCommpetitors:JSX.Element[] = competitors.map(item => <p key={useId()}>{item}</p>)
 
 
 
 
-
+    
 
 
 
@@ -64,11 +68,11 @@ function Judge(){
     return(
         <>
             <header>
-                <BackButton/>
+                <Link to={"/competition/manageRings"}>Back </Link>
                 <span>&emsp;&emsp;&emsp;&emsp;&emsp;</span>
                 <span> Ring {ringNumber} </span>
             </header>
-            <h1>Judge</h1>
+            <h1>Judge {judgeNum}</h1>
             <input type="text" onChange={handleScoreInput}></input>
             <button onClick={handleScoreEnterOnClick}>Enter</button>
 

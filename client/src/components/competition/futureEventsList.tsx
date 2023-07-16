@@ -25,7 +25,7 @@ function FutureEventsList(props:Props){
     let i:number = 0;
     const futureCommpetitors:JSX.Element[] = []
     while (i != futureEventsCompetitors.length){
-        futureCommpetitors.push(<FutureEvent 
+        futureCommpetitors.push(<FutureEvent
             key={futureEventNames[i]}
             nameList={futureEventsCompetitors[i]}
             eventName = {futureEventNames[i]}
