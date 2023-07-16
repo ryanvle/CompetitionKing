@@ -1,7 +1,7 @@
 // import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
-import './App.css'
+import { Link } from 'react-router-dom'
 import {Routes, Route} from 'react-router-dom'
 import Home from './pages/home'
 import SignUp from './pages/signUp'
@@ -35,6 +35,12 @@ function App() {
 
   return (
     <>
+      <nav>
+        <Link to=""><img></img>Competition Kings</Link>
+        <Link to=""><img></img>Home</Link>
+        <Link to=""><img></img>About Us</Link>
+        <Link to=""><img></img>Events</Link>
+      </nav>
       <Routes>
         <Route index element = {<Home/>}/>
         <Route path='/signUp' element = {<SignUp/>}/>
