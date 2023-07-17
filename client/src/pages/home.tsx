@@ -3,17 +3,7 @@ import { Link } from "react-router-dom";
 function Home(){
     return(
         <>
-        <header>
-            <nav>
-                <a className="logo" href="#">Competition Kings</a>
-                <ul>
-                    <li><a href="">About Us</a></li>
-                    <li><a href="">Events</a></li>
-                    <li><a href="">Login</a></li>
-                </ul>
-            </nav>
-        </header>
-            
+    
         <section className="sect hero">
             <figure>
                 <img src="" alt="Hero Image" />
@@ -27,7 +17,7 @@ function Home(){
             <article>
                 <h1>Welcome</h1>
                 <p>Welcome to compeition kings a great compeition maker</p>
-                <ul>
+                <ul className="welcome-nav">
                     <li><a href="#events">Events</a></li>
                     <li><a href="#getting_started">Getting Started</a></li>
                     <li><a href="#pricing">Pricing</a></li>

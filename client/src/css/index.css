@@ -1,19 +1,41 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  --header-fonts: 'Poppins', sans-serif;
+  --body-fonts: 'DM Sans', sans-serif;
+  
+  --header-banner-size: 2.5rem;
+  --header-headlines-size: 2.25rem;
+  --header-subheadlines-size: 2rem;
+
+  --body-large-size: 1.5rem;
+  --body-medium-size: 1.25rem;
+  --body-small-size: 1rem;
+
+  --background: #FFFFFF;
+  --primary-color: #222323;
+  --secondary-color: #f0f6f0;
+  --cta-color: #862cfb;
+
+  --large-spacing: 2rem;
+  --medium-spacing: 1.5rem;
+  --small-spacing: 1rem;
+  --xsmall-spacing: .5rem;
+
+
+  font-family: var(--body-fonts);
   font-weight: 400;
 
   width: 100%;
 
   color-scheme: light dark;
   color: #242424; 
-  background-color: rgba(255, 255, 255, 0.87);
+  background-color: var(--background);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
 }
 
 a {
@@ -25,17 +47,18 @@ a:hover {
   color: #535bf2;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: var(--header-banner-size);
+  font-family: var(--header-fonts);
+}
+h2 {
+  font-size: var(--header-headlines-size);
+  font-family: var(--header-fonts);
+}
+h3 {
+  font-size: var(--header-subheadlines-size);
+  font-family: var(--header-fonts);
 }
 
 button {
@@ -55,6 +78,39 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--large-spacing);
+}
+
+.navRight{
+  display: flex;
+  margin-left: var(--large-spacing);
+}
+.navLeft{
+  display: flex;
+}
+
+.navSec{
+  list-style: none;
+  margin-right: var(--large-spacing);
+}
+
+section{
+  display: grid;
+  justify-content: center;
+}
+
+.welcome-nav{
+  display: flex;
+  list-style: none;
+  margin: auto;
+  align-items: center;
+  justify-content: space-between;
 }
 
 @media (prefers-color-scheme: light) {

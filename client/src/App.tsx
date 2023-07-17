@@ -36,11 +36,19 @@ function App() {
   return (
     <>
       <nav>
-        <Link to=""><img></img>Competition Kings</Link>
-        <Link to=""><img></img>Home</Link>
-        <Link to=""><img></img>About Us</Link>
-        <Link to=""><img></img>Events</Link>
+        <div className='navRight'>
+          <Link to=""><img></img>Competition Kings</Link>
+        </div>
+        <div className='navLeft'>
+          <li className='navSec'><Link to="">Home</Link></li>
+          <li className='navSec'><Link to="">About Us</Link></li>
+          <li className='navSec'><Link to="">Events</Link></li>
+          <li className='navSec'><Link to="">Login</Link></li>
+          <li className='navSec'><Link to="">LANG</Link></li>
+        </div>
       </nav>
+
+
       <Routes>
         <Route index element = {<Home/>}/>
         <Route path='/signUp' element = {<SignUp/>}/>
