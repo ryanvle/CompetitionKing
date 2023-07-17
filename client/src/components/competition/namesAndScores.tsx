@@ -14,9 +14,9 @@ const NamesandScores = (props:Props) => {
 
         //make scores elements
         let scoresElements:JSX.Element[]=[]
-        for (let i = 0; i<currCompetitor.scores.length; i++){
+        for (let j = 0; j<currCompetitor.scores.length; j++){
             scoresElements.push(
-                <span key={i}>{currCompetitor.scores[i].toFixed(2)}   </span>
+                <span key={j}>{currCompetitor.scores[j].toFixed(2)}   </span>
             );
         }
         scoresElements.push(
@@ -25,7 +25,7 @@ const NamesandScores = (props:Props) => {
 
 
         doneNameAndScoresElement.push(
-            <div>
+            <div key={i}>
                 <p>{i+1}.  {competitorData[i].name}</p>
                 {scoresElements}
             </div>)

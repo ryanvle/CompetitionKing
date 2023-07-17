@@ -133,8 +133,8 @@ function ScheduleColumn(props:Props){
                 <p><strong>Ring Level: </strong>{ringLevel}</p>
                 <p><strong>Start Time: </strong>{startTime}</p>
                 <p><strong>Results: </strong>
-                    <Link to={"/competition/eventInfo"}>Finished Events </Link> &emsp;
-                    <Link to={"/competition/schedule"}>Grand Champion </Link> &emsp;
+                    <Link to={"/competition/results/finishedEvents"}>Finished Events </Link> &emsp;
+                    <Link to={"/competition/results/grandChampion"}>Grand Champion </Link> &emsp;
                 </p>
 
             </div>
