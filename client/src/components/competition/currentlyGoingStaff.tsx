@@ -1,16 +1,18 @@
 import {useState} from 'react'
+import NamesandScores from './namesAndScores';
 
 interface Props{
     ringNumber:number
 }
 
 
-type competitor ={
+export type competitor ={
     name: string;
     scores: number[];
     finalScore: number;
-
 }
+
+
 const CurrentlyGoingStaff = (props:Props) => {
     const ringNumber= props.ringNumber;
 
@@ -66,32 +68,10 @@ const CurrentlyGoingStaff = (props:Props) => {
     }
 
 
-    const sortedData = competitorsDoneData;
+    const sortedData = competitorsDoneData.slice();
     sortedData.sort((a,b)=> b.finalScore-a.finalScore);
-    console.log(sortedData);
 
-    const doneNameAndScoresElement: JSX.Element[] =[];
-    for (let i = 0; i<sortedData.length; i++){
-        let currCompetitor:competitor = sortedData[i]
-
-        //make scores elements
-        let scoresElements:JSX.Element[]=[]
-        for (let i = 0; i<currCompetitor.scores.length; i++){
-            scoresElements.push(
-                <span key={i}>{currCompetitor.scores[i].toFixed(2)}   </span>
-            );
-        }
-        scoresElements.push(
-            <span key={"x"}>{currCompetitor.finalScore}   </span>
-        );
-
-
-        doneNameAndScoresElement.push(
-            <div>
-                <p>{i+1}.  {sortedData[i].name}</p>
-                {scoresElements}
-            </div>)
-    }
+    
 
     return (
         <div>
@@ -105,7 +85,7 @@ const CurrentlyGoingStaff = (props:Props) => {
             {currentCompetitorScoresElements}
             {remainingCompetitorsListElement}
             <h3>Rankings</h3>
-            {doneNameAndScoresElement}
+            <NamesandScores data={sortedData}/>
         </div>
     )
 }

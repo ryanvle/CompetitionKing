@@ -1,6 +1,4 @@
 import { useState } from "react";
-import CurrentlyGoing from "./currentlyGoing";
-import DoneList from "./doneList";
 import FutureEventsEditableList from "./futureEventsEditableList";
 import { Link } from "react-router-dom";
 
@@ -144,7 +142,6 @@ function ScheduleColumn(props:Props){
             {EventGroupsListElement}
 
             {editModeBottomButtons}
-            <DoneList ringNumber={ringNumber}/>
         </div>
     );
 

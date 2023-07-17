@@ -10,12 +10,24 @@ function Judge(){
     const judgeNum = queryParams.get("judgeNumber");
     const ringNumQuery = queryParams.get("ringNumber");
     if(ringNumQuery === null) throw Error;
-    const ringNumber:number =  Number.parseInt(ringNumQuery); 
+    const ringNumber:number =  Number.parseInt(ringNumQuery);
 
     //States that are gonna be changed by endpoint
     // const [competitors, setCompetitors] = useState<string[]>(["Oey","Boey","Joey","Chloey"]);
     // const [category, setCategory] = useState<string>("Advanced Female fiveStance");
     // const [competitorIndex, setCompetitorIndex] = useState<number>(2);
+
+    const [futureEventNames, setFutureEventNames] = useState<string[]>([
+        "Advanced Adult Female Changquan",
+        "Advanced Adult Female DaoShu",
+        "Advanced Adult Female GunShu",
+    ])
+    const [futureEventsCompetitors, setFutureEventsCompetitors] = useState<string[][]>([
+        ["Qoey","Woey","Roey","Toey",],
+        ["Yoey","Poey","Soey","Loey",],
+        ["Foey","Goey","Hoey","Joey",],
+    ])
+
 
 
     const [scoreInput, setScoreInput] = useState<string>("");
@@ -88,9 +100,12 @@ function Judge(){
             <CurrentlyGoing ringNumber={ringNumber}/>
 
             <h2>Up Next</h2>
-            <FutureEventsList ringNumber={ringNumber}/>
+            <FutureEventsList
+                futureEventNames={futureEventNames}
+                futureEventsCompetitors= {futureEventsCompetitors}
+            />
 
-            {/* <ScheduleColumn ringNumber={ringNumber}/> */}
+
         </>
     );
 

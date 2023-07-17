@@ -8,13 +8,13 @@ interface Props{
 
 function FutureEvent(props:Props){
 
-    
-    const [showNames, setShowNames] = useState<boolean>(false); 
-    const [nameList] = useState<string[]>(props.nameList); 
-    const [EventName] = useState<string>(props.eventName); 
 
-    
-    const handleShowHideFutureCompetitors = () => { 
+    const [showNames, setShowNames] = useState<boolean>(false);
+    const nameList: string[] =props.nameList;
+    const EventName: string =props.eventName;
+
+
+    const handleShowHideFutureCompetitors = () => {
         setShowNames(!showNames);
     }
 
@@ -27,8 +27,6 @@ function FutureEvent(props:Props){
         }
 
 
-        
-    
 
 
 

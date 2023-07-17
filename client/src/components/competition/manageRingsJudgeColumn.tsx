@@ -8,7 +8,7 @@ interface Props{
 
 const ManageRingsJudgeColumn = (props:Props) => {
 
-    //states 
+    //states
     const [judges, setJudges] = useState<string[]>(["Brian Wang","Oey Chang", "Nicholas Sun", "Ryan Tang", "Bobby Riley"]);
     const ringNumber =props.ringNumber;
 

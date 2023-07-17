@@ -11,6 +11,7 @@ function HeadJudge(){
     if(ringNumQuery === null) throw Error;
     const ringNumber:number =  Number.parseInt(ringNumQuery);
 
+
     //States that are gonna be changed by endpoint
     const [judgesList, setJudgesList] = useState<string[]>(["Oey","Nicholas","Ryan","Brian"]); 
     const [judgeScores, setjudgeScores] = useState<number[]>([7.8, 7.9, 7.85,7.75]);
@@ -21,46 +22,46 @@ function HeadJudge(){
     const [showAverageScore, setShowAverageScore] = useState<boolean>(false);
 
 
-    const [competitors, setCompetitors] = useState<string[]>(["Oey","Boey","Joey","Chloey"]); 
-    const [category, setCategory] = useState<string>("Advanced Female fiveStance");
+    // const [competitors, setCompetitors] = useState<string[]>(["Oey","Boey","Joey","Chloey"]); 
+    // const [category, setCategory] = useState<string>("Advanced Female fiveStance");
 
-    // const [futureEventNames, setFutureEventNames] = useState<string[]>([
-    //     "Advanced Adult Female Changquan",
-    //     "Advanced Adult Female DaoShu",
-    //     "Advanced Adult Female GunShu",
-    // ])
-    // const [futureEventsCompetitors, setFutureEventsCompetitors] = useState<string[][]>([
-    //     ["Qoey","Woey","Roey","Toey",],
-    //     ["Yoey","Poey","Soey","Loey",],
-    //     ["Foey","Goey","Hoey","Joey",],
-    // ])
+    const [futureEventNames, setFutureEventNames] = useState<string[]>([
+        "Advanced Adult Female Changquan",
+        "Advanced Adult Female DaoShu",
+        "Advanced Adult Female GunShu",
+    ])
+    const [futureEventsCompetitors, setFutureEventsCompetitors] = useState<string[][]>([
+        ["Qoey","Woey","Roey","Toey",],
+        ["Yoey","Poey","Soey","Loey",],
+        ["Foey","Goey","Hoey","Joey",],
+    ])
 
 
-    
+
     const [scoreInput, setScoreInput] = useState<string>("");
 
     //when getting load endpoint, set showHide to array of false of length of futureEvents
-    
-     
+
+
 
     //HANDLE EVENT FUNCTIONS
     const handleScoreInput = (evt: ChangeEvent<HTMLInputElement>):void => {
             setScoreInput(evt.target.value);
     }
-    
-    const handleScoreEnterOnClick= ():void => { 
+
+    const handleScoreEnterOnClick= ():void => {
         const score = parseInt(scoreInput);
         if(Number.isNaN(score)||score<0 || score > 10 ){
             alert("please put a valid score");
         }else{
             console.log(scoreInput);
 
-            
+
             //fetch endpoint
         }
     }
 
-    const handleApproveOnClick = ():void =>{ 
+    const handleApproveOnClick = ():void =>{
         const score = parseInt(scoreInput);
         if (Number.isNaN(score)){
             alert("your input score was invalid")
@@ -79,7 +80,7 @@ function HeadJudge(){
                 setShowAverageScore(true)
             }
         }
-        
+
     }
     const handleDenyOnClick = ():void =>{
         console.log("deny onCLick not implemented yet")
@@ -159,7 +160,10 @@ function HeadJudge(){
             <CurrentlyGoing ringNumber={ringNumber}/>
 
             <h2>Up Next</h2>
-            <FutureEventsList ringNumber={ringNumber}/>
+            <FutureEventsList
+                futureEventNames={futureEventNames}
+                futureEventsCompetitors= {futureEventsCompetitors}
+            />
 
         </>
     );

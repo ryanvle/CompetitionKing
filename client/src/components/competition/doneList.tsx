@@ -32,7 +32,7 @@ function DoneList(props:Props){
     let i:number = 0;
     const doneCommpetitors:JSX.Element[] = []
     while (i != doneEventsCompetitors.length){
-        doneCommpetitors.push(<Done 
+        doneCommpetitors.push(<Done
             key={doneEventNames[i]}
             nameList={doneEventsCompetitors[i]}
             eventName = {doneEventNames[i]}

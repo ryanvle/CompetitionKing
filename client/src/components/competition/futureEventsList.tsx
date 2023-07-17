@@ -2,7 +2,8 @@ import {  useState} from "react";
 import FutureEvent from "./futureEvents";
 
 interface Props{
-    ringNumber:number;
+    futureEventNames: string[];
+    futureEventsCompetitors:string[][];
 }
 
 
@@ -11,16 +12,18 @@ function FutureEventsList(props:Props){
 
     const [ringNumber, setRingNumber] = useState<number>();
 
-    const [futureEventNames, setFutureEventNames] = useState<string[]>([
-        "Advanced Adult Female Changquan",
-        "Advanced Adult Female DaoShu",
-        "Advanced Adult Female GunShu",
-    ])
-    const [futureEventsCompetitors, setFutureEventsCompetitors] = useState<string[][]>([
-        ["Qoey","Woey","Roey","Toey",],
-        ["Yoey","Poey","Soey","Loey",],
-        ["Foey","Goey","Hoey","Joey",],
-    ])
+    // const [futureEventNames, setFutureEventNames] = useState<string[]>([
+    //     "Advanced Adult Female Changquan",
+    //     "Advanced Adult Female DaoShu",
+    //     "Advanced Adult Female GunShu",
+    // ])
+    // const [futureEventsCompetitors, setFutureEventsCompetitors] = useState<string[][]>([
+    //     ["Qoey","Woey","Roey","Toey",],
+    //     ["Yoey","Poey","Soey","Loey",],
+    //     ["Foey","Goey","Hoey","Joey",],
+    // ])
+    const futureEventNames=props.futureEventNames
+    const futureEventsCompetitors=props.futureEventsCompetitors
 
     let i:number = 0;
     const futureCommpetitors:JSX.Element[] = []
