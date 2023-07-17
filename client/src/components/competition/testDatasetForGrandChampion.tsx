@@ -59,8 +59,8 @@ export const dataSet: athlete[] = [
     },
     {
         name: "Oey Chang",
-        scores: [7.8, 7.8, 7.6, 7.5, 7.7],
-        averageScore: 7.61,
+        scores: [7.8, 7.8, 7.6, -10, -1],
+        averageScore: -100,
         age: "Child",
         gender:"Female"
     },

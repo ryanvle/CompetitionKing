@@ -20,9 +20,9 @@ const CurrentlyGoingStaff = (props:Props) => {
 
     const [currentEventName, setCurrentEventName] = useState<string>("Boys 5 Stance");
     const [competitorsDoneData, setCompetitorsDoneData] = useState<competitor[]>([
-        {name:"Oey Chang", scores: [8.2,8.5,8.7,8.6,8.9], finalScore: 8.6 },
+        {name:"Oey Chang", scores: [8.2,8.55,8.7,8.6,8.9], finalScore: 8.6 },
         {name:"Qoey Chang", scores: [8.4,8.2,8.7,8.2,8.0], finalScore: 8.27 },
-        {name:"Toey Chang", scores: [8.1,8.4,8.7,8.1,8.4], finalScore: 8.3 },
+        {name:"Toey Chang", scores: [8.1,8.4,8.7,8.1,-1], finalScore: -1 },
     ]);
 
     const [futureCompetitors, setFutureCompetitors] = useState<string[]>
@@ -45,19 +45,9 @@ const CurrentlyGoingStaff = (props:Props) => {
 
 
     const currentCompetitorIndex= competitorsDoneData.length-1;
-    const currentScores = competitorsDoneData[currentCompetitorIndex].scores;
 
 
-    // make the current competitors scores
-    const currentCompetitorScoresElements: JSX.Element[]=[]
-    for (let i = 0; i<currentScores.length; i++){
-        currentCompetitorScoresElements.push(
-            <span key={i}>{currentScores[i].toFixed(2)}   </span>
-        );
-    }
-    currentCompetitorScoresElements.push(
-        <span key={"x"}>{competitorsDoneData[currentCompetitorIndex].finalScore}   </span>
-    );
+
 
     // make remaining competitors list
     const remainingCompetitorsListElement: JSX.Element[] =[];
@@ -71,7 +61,7 @@ const CurrentlyGoingStaff = (props:Props) => {
     const sortedData = competitorsDoneData.slice();
     sortedData.sort((a,b)=> b.finalScore-a.finalScore);
 
-    
+
 
     return (
         <div>
@@ -82,7 +72,7 @@ const CurrentlyGoingStaff = (props:Props) => {
             <br/>
             {competitorsDoneData[currentCompetitorIndex].name}
             <br/>
-            {currentCompetitorScoresElements}
+            <NamesandScores data={[competitorsDoneData[currentCompetitorIndex]]}/>
             {remainingCompetitorsListElement}
             <h3>Rankings</h3>
             <NamesandScores data={sortedData}/>

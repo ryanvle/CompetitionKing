@@ -15,17 +15,27 @@ const NamesandScores = (props:Props) => {
         //make scores elements
         let scoresElements:JSX.Element[]=[]
         for (let j = 0; j<currCompetitor.scores.length; j++){
+            const currScore:number = currCompetitor.scores[j];
+            
+            const fixedAmount: number = Math.round(currScore*100) %10===0? 1:2;
+            console.log(currScore+"  "+ fixedAmount);
+            const scoreString:string = currScore>0?
+                ""+currScore.toFixed(fixedAmount):"x";
             scoresElements.push(
-                <span key={j}>{currCompetitor.scores[j].toFixed(2)}   </span>
+                <span key={j}>{scoreString}   </span>
             );
         }
+
+        const finalScoreString:string = currCompetitor.finalScore>0?
+            ""+currCompetitor.finalScore:"x"
         scoresElements.push(
-            <span key={"x"}>{currCompetitor.finalScore}   </span>
+            //this one will be css'd differently
+            <span key={"x"}>{finalScoreString}   </span>
         );
 
 
         doneNameAndScoresElement.push(
-            <div key={i}>
+            <div key={i}>  
                 <p>{i+1}.  {competitorData[i].name}</p>
                 {scoresElements}
             </div>)
