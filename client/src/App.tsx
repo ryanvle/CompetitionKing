@@ -30,6 +30,7 @@ import ManageRings from './pages/competition/manageRings'
 import Results from './pages/results'
 import FinishedEvents from './pages/competition/finishedEvents'
 import GrandChampion from './pages/competition/grandChampion'
+import Staff from './pages/competition/staff'
 
 function App() {
 
@@ -79,6 +80,7 @@ function App() {
         </Route>
         <Route path='/competition/headJudge' element = {<HeadJudge/>}/>
         <Route path='competition/judge' element = {<Judge/>}/>
+        <Route path='competition/staff' element = {<Staff/>}/>
         <Route path='competition/results' element = {<Results/>}>
           <Route path='finishedEvents' element = {<FinishedEvents/>}/>
           <Route path='grandChampion' element = {<GrandChampion/>}/>

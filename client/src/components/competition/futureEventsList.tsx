@@ -6,7 +6,7 @@ interface Props{
 }
 
 
-
+//makes a list of events given list of event name sand array of competitors through props
 function FutureEventsList(props:Props){
 
     const [ringNumber, setRingNumber] = useState<number>();
@@ -36,7 +36,6 @@ function FutureEventsList(props:Props){
 
     return(
         <div>
-            <h2>Up Next</h2>
             {futureCommpetitors}
         </div>
     );

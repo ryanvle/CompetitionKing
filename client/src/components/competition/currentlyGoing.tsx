@@ -8,11 +8,12 @@ interface Props{
 function CurrentlyGoing(props:Props){
 
 
-    const [ringNumber, setRingNumber] = useState<number>(props.ringNumber);
+    const ringNumber =props.ringNumber;
+
     const [category, setCategory] = useState<string>("male advanced teen nanquan");
     const [currentCommpetitors, setCurrentCompetitors] = useState<string[]>(["Oey","Boey","Joey","Stoey"]);
     const [competitorScores, setCompetitorScores] = useState<number[]>([9.5]);
-    const [currentCompetitorIndex, setCurrentCompetitorIndex]        = useState<number>(3);
+    const [currentCompetitorIndex, setCurrentCompetitorIndex]= useState<number>(3);
 
     const [toggleEdit, setToggleEdit] = useState<boolean>(false);
     const [addPersonInputText, setAddPersonInputText] = useState<string>("");
