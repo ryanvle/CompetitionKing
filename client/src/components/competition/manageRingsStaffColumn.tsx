@@ -1,4 +1,5 @@
 import { ChangeEvent, useState} from 'react'
+import { Link } from 'react-router-dom';
 
 
 interface Props{
@@ -15,9 +16,11 @@ const ManageRingsStaffColumn = (props:Props) => {
     const staffIsBeingRenamedBuilder:boolean[] = new Array<boolean>(staff.length).fill(false);
     const [staffIsBeingRenamed, setStaffIsBeingRenamed] = useState<boolean[]>(staffIsBeingRenamedBuilder);
     const [staffRenamingTextInput, setStaffRenamingTextInput] = useState<string>("");
-
-
-
+    [
+        ["Oey Chang", "Nicholas Sun", "Ryan Tang", "Bobby Riley"],
+        ["BOey Chang", "Bicholas Sun", "Byan Tang", "Bobby Riley"],
+        ["COey Chang", "Cicholas Sun", "Cyan Tang", "Cobby Riley"],
+    ]
 
     const handleToggleEditStaff = ():void =>{
         setToggleEditStaff(!toggleEditStaff)
@@ -93,6 +96,7 @@ const ManageRingsStaffColumn = (props:Props) => {
         <h2>Ring {ringNumber}</h2>
         <div>
             {staffElement}
+            <Link to={"/competition/staff?ringNumber=" + ringNumber}><button onClick={handleToggleEditStaff}>Link to Staff View</button></Link><br/>
             <button onClick={handleToggleEditStaff}>Edit Staff List</button>
         </div>
 

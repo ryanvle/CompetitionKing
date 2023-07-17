@@ -1,6 +1,7 @@
 import { ChangeEvent, useState, useId} from "react";
 import FutureEventsList from "../../components/competition/futureEventsList";
 import { Link } from "react-router-dom";
+import CurrentlyGoing from "../../components/competition/currentlyGoing";
 
 
 
@@ -12,9 +13,9 @@ function Judge(){
     const ringNumber:number =  Number.parseInt(ringNumQuery); 
 
     //States that are gonna be changed by endpoint
-    const [competitors, setCompetitors] = useState<string[]>(["Oey","Boey","Joey","Chloey"]);
-    const [category, setCategory] = useState<string>("Advanced Female fiveStance");
-    const [competitorIndex, setCompetitorIndex] = useState<number>(2);
+    // const [competitors, setCompetitors] = useState<string[]>(["Oey","Boey","Joey","Chloey"]);
+    // const [category, setCategory] = useState<string>("Advanced Female fiveStance");
+    // const [competitorIndex, setCompetitorIndex] = useState<number>(2);
 
 
     const [scoreInput, setScoreInput] = useState<string>("");
@@ -43,7 +44,7 @@ function Judge(){
 
 
     //some logic stuff for rendering
-    const currentCommpetitors:JSX.Element[] = competitors.map(item => <p key={useId()}>{item}</p>)
+    // const currentCommpetitors:JSX.Element[] = competitors.map(item => <p key={useId()}>{item}</p>)
 
 
 
@@ -78,13 +79,15 @@ function Judge(){
 
 
 
-            <div>
+            {/* <div>
                 <h2> Currently going  </h2>
                 <h3>{category}&emsp;&emsp; {competitorIndex}/{competitors.length}</h3>
                 {currentCommpetitors}
-            </div>
+            </div> */}
 
+            <CurrentlyGoing ringNumber={ringNumber}/>
 
+            <h2>Up Next</h2>
             <FutureEventsList ringNumber={ringNumber}/>
 
             {/* <ScheduleColumn ringNumber={ringNumber}/> */}

@@ -14,6 +14,9 @@ function HeadJudge(){
     //States that are gonna be changed by endpoint
     const [judgesList, setJudgesList] = useState<string[]>(["Oey","Nicholas","Ryan","Brian"]); 
     const [judgeScores, setjudgeScores] = useState<number[]>([7.8, 7.9, 7.85,7.75]);
+
+
+
     const [averageScore, setAverageScore] = useState<number>();
     const [showAverageScore, setShowAverageScore] = useState<boolean>(false);
 
@@ -21,20 +24,20 @@ function HeadJudge(){
     const [competitors, setCompetitors] = useState<string[]>(["Oey","Boey","Joey","Chloey"]); 
     const [category, setCategory] = useState<string>("Advanced Female fiveStance");
 
-    const [futureEventNames, setFutureEventNames] = useState<string[]>([
-        "Advanced Adult Female Changquan",
-        "Advanced Adult Female DaoShu",
-        "Advanced Adult Female GunShu",
-    ])
-    const [futureEventsCompetitors, setFutureEventsCompetitors] = useState<string[][]>([
-        ["Qoey","Woey","Roey","Toey",],
-        ["Yoey","Poey","Soey","Loey",],
-        ["Foey","Goey","Hoey","Joey",],
-    ])
+    // const [futureEventNames, setFutureEventNames] = useState<string[]>([
+    //     "Advanced Adult Female Changquan",
+    //     "Advanced Adult Female DaoShu",
+    //     "Advanced Adult Female GunShu",
+    // ])
+    // const [futureEventsCompetitors, setFutureEventsCompetitors] = useState<string[][]>([
+    //     ["Qoey","Woey","Roey","Toey",],
+    //     ["Yoey","Poey","Soey","Loey",],
+    //     ["Foey","Goey","Hoey","Joey",],
+    // ])
 
 
     
-    const [scoreInput, setScoreInput] = useState<string>("");  
+    const [scoreInput, setScoreInput] = useState<string>("");
 
     //when getting load endpoint, set showHide to array of false of length of futureEvents
     
@@ -112,24 +115,24 @@ function HeadJudge(){
             </span>: <></>
 
 
-    const currentCommpetitors:JSX.Element[] = competitors.map(item => <li key={useId()}>{item}</li>)
+    // const currentCommpetitors:JSX.Element[] = competitors.map(item => <li key={useId()}>{item}</li>)
 
     //approve scores
     const judgeScoreElement:JSX.Element[] =  judgeScores.map(score =>
         <span key={score+""}>{score} &emsp;</span> )
 
     // making the show/hide boxes
-    let i:number = 0;
 
 
-    const futureCommpetitors:JSX.Element[] = []
-    while (i != futureEventsCompetitors.length){
-        futureCommpetitors.push(<FutureEvent
-            nameList={futureEventsCompetitors[i]}
-            eventName = {futureEventNames[i]}
-        />)
-        i++;
-    }
+    // let i:number = 0;
+    // const futureCommpetitors:JSX.Element[] = []
+    // while (i != futureEventsCompetitors.length){
+    //     futureCommpetitors.push(<FutureEvent
+    //         nameList={futureEventsCompetitors[i]}
+    //         eventName = {futureEventNames[i]}
+    //     />)
+    //     i++;
+    // }
 
 
 
@@ -155,6 +158,7 @@ function HeadJudge(){
             </div>
             <CurrentlyGoing ringNumber={ringNumber}/>
 
+            <h2>Up Next</h2>
             <FutureEventsList ringNumber={ringNumber}/>
 
         </>
