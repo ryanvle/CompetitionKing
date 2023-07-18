@@ -3,24 +3,22 @@ import { Link } from "react-router-dom";
 function Home(){
     return(
         <>
-    
+
         <section className="sect hero">
-            <div className="hero nav">
-                <button>Create an Event</button>
-                <button>Register for an Event</button>
-            </div>
+                <button className="heroButt">Create an Event</button>
+                <button className="heroButt">Register for an Event</button>
         </section>
         
         <section className="sect welcome">
-            <article>
+            <div className="sect-container">
                 <h1>Welcome</h1>
-                <p>Welcome to compeition kings a great compeition maker</p>
                 <ul className="welcome-nav">
-                    <li><a href="#events">Events</a></li>
-                    <li><a href="#getting_started">Getting Started</a></li>
+                    <li><a href="#getting_started"><strong>Getting Started</strong></a></li>
+                    <li><a href="#events">Events</a></li> 
                     <li><a href="#pricing">Pricing</a></li>
                 </ul>
-            </article>
+                <p>Welcome to Competition Kings, the ultimate destination for all your competition needs. As a leading competition maker, we offer a diverse array of unique and captivating competitions that cater to a wide range of interests and passions. Our commitment to excellence ensures flawless experiences, with meticulous attention to detail in rules, visuals, and user-friendly interfaces. Collaborating with renowned sponsors, we provide amazing prizes and incentives to motivate participants. With accessible features and dedicated support, unleash your competitive spirit and be part of the most exhilarating competitions at Competition Kings.</p>
+            </div>         
         </section>
 
         <section className="sect events" id="events">

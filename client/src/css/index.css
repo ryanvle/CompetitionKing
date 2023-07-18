@@ -15,6 +15,8 @@
   --secondary-color: #f0f6f0;
   --cta-color: #862cfb;
 
+
+  --xlarge-spacing: 2.5rem;
   --large-spacing: 2rem;
   --medium-spacing: 1.5rem;
   --small-spacing: 1rem;
@@ -52,14 +54,17 @@ a:hover {
 h1 {
   font-size: var(--header-banner-size);
   font-family: var(--header-fonts);
+  margin: 0;
 }
 h2 {
   font-size: var(--header-headlines-size);
   font-family: var(--header-fonts);
+  margin: 0;
 }
 h3 {
   font-size: var(--header-subheadlines-size);
   font-family: var(--header-fonts);
+  margin: 0;
 }
 
 button {
@@ -111,30 +116,38 @@ section{
 .welcome-nav{
   display: flex;
   list-style: none;
-  margin: auto;
   align-items: center;
-  justify-content: space-between;
+  justify-content: start;
+  padding: 0;
 }
 
 .icons{
   width: 1.5rem;
 }
 
-.hero.nav{
-  display: flex;
-  padding: var(--medium-spacing);
+li{
+  margin: 0 1rem 0 0;
 }
 
 .sect.hero{
   background-image: url(src/assets/Pictures/Thumbnail-02.png);
+  background-size: contain;
   background-repeat: no-repeat;
-  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 32rem;
 }
-
+.heroButt{
+  margin: 0 3rem; 
+}
+.sect{
+  display: flex;
+  justify-content: center;
+}
+.sect-container{
+  width: min(700px, 50%);
+}
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
