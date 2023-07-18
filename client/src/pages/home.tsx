@@ -5,12 +5,10 @@ function Home(){
         <>
     
         <section className="sect hero">
-            <figure>
-                <img src="" alt="Hero Image" />
-                <figcaption>This is a hero image for the home page for competition kings</figcaption> 
-            </figure>
-            <button>Create an Event</button>
-            <button>Register for an Event</button>
+            <div className="hero nav">
+                <button>Create an Event</button>
+                <button>Register for an Event</button>
+            </div>
         </section>
         
         <section className="sect welcome">

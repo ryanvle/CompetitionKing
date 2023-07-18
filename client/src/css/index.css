@@ -25,6 +25,7 @@
   font-weight: 400;
 
   width: 100%;
+  margin: auto;
 
   color-scheme: light dark;
   color: #242424; 
@@ -83,7 +84,7 @@ button:focus-visible {
 nav{
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  vertical-align: middle;
   padding: var(--large-spacing);
 }
 
@@ -93,9 +94,11 @@ nav{
 }
 .navLeft{
   display: flex;
+  vertical-align: middle;
 }
 
 .navSec{
+  display: flex;
   list-style: none;
   margin-right: var(--large-spacing);
 }
@@ -111,6 +114,25 @@ section{
   margin: auto;
   align-items: center;
   justify-content: space-between;
+}
+
+.icons{
+  width: 1.5rem;
+}
+
+.hero.nav{
+  display: flex;
+  padding: var(--medium-spacing);
+}
+
+.sect.hero{
+  background-image: url(src/assets/Pictures/Thumbnail-02.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32rem;
 }
 
 @media (prefers-color-scheme: light) {
