@@ -28,7 +28,8 @@ const Staff = () => {
         ["Foey","Goey","Hoey","Joey",],
     ])
 
-    const [doneData, setDoneData] = useState<wushuEvent[]>([
+    const [doneData, setDoneData] = useState<wushuEvent[]>(
+    [
         {
             eventName: "Five Stance - Beginner Adult Men",
             competitors: [

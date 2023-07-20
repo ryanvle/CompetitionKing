@@ -1,11 +1,10 @@
 import { Link, Outlet } from "react-router-dom"
-import BackButton from "../components/competition/backButton"
 
 
 function Results(){
     return(
         <div>
-            <BackButton/>
+            <Link to={"/competition/schedule"}>Back </Link>
             <h1>Results</h1>
             <h2>
                 <Link to={"/competition/results/finishedEvents"}>Finished Events </Link> &emsp;

@@ -11,6 +11,8 @@ interface Props{
 const FinishedEventsColumn = (props:Props) => {
     const ringNumber = props.ringNumber;
 
+
+    //fetch these
     const [doneData, setDoneData] = useState<wushuEvent[]>([
         {
             eventName: "Five Stance - Beginner Adult Men",

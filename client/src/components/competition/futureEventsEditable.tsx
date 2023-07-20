@@ -3,41 +3,33 @@ import { ChangeEvent, useState } from "react";
 interface Props{
     eventName: string;
     nameList: string[];
-    
+
 }
 
-
+//represents one event that is editable in schedule
 function FutureEventEditable(props:Props){
 
-    
-    const [toggleEventExpanded, setToggleEventExpanded] = useState<boolean>(false); 
-    const [nameList] = useState<string[]>(props.nameList); 
-    const [EventName] = useState<string>(props.eventName); 
+
+    const [toggleEventExpanded, setToggleEventExpanded] = useState<boolean>(false);
+    const [nameList] = useState<string[]>(props.nameList);
+    const [EventName] = useState<string>(props.eventName);
 
     const [toggleEdit, setToggleEdit] = useState<boolean>(  );
     const [addPersonInputText, setAddPersonInputText] = useState<string>("");
 
     const handleShowHideFutureCompetitors = (evt: React.MouseEvent<HTMLButtonElement>) => {
-        // if(! props.inSelectMode){
         setToggleEventExpanded(!toggleEventExpanded);
         setToggleEdit(false)
-
-        // }
     }
 
     const handleToggleEdit = ():void =>{
-        // if(! props.inSelectMode){
-            setToggleEdit(!toggleEdit)
-            setToggleEventExpanded(true)
-        // }
+        setToggleEdit(!toggleEdit)
+        setToggleEventExpanded(true)
     }
 
-    const handleDeletePerson = (evt:React.MouseEvent<HTMLButtonElement>):void =>{
-        //deletethis
-        if(! ("value" in evt.target) || evt.target.value === ""){
-            throw Error("I'm an error");
-        }
-        console.log("endpoint removes " + evt.target.value)
+    const handleDeletePerson = (competitor:string):void =>{
+        //FETCH remove person
+        console.log("endpoint removes " + competitor)
     }
 
     const handleAddPersonInput = (evt: ChangeEvent<HTMLInputElement>):void => {
@@ -48,6 +40,7 @@ function FutureEventEditable(props:Props){
         if(addPersonInputText === ""){
             alert("please put in a name")
         }
+        //FETCH add person
         console.log("endpoint adds " + addPersonInputText)
         setAddPersonInputText("");
     }
@@ -65,7 +58,7 @@ function FutureEventEditable(props:Props){
     if(toggleEventExpanded){
         const currentCommpetitorsElement:JSX.Element[] = toggleEdit?
             nameList.map(competitor => <p key={competitor}>{competitor}
-                <button value={competitor} onClick={handleDeletePerson}>-</button></p>):
+                <button  onClick={()=>{handleDeletePerson(competitor)}}>-</button></p>):
             nameList.map(competitor => <p key={competitor}>{competitor}</p>)
 
         const addCompetitorElement: JSX.Element = toggleEdit?

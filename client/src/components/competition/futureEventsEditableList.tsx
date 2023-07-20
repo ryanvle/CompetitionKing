@@ -10,11 +10,12 @@ interface Props{
     inSelectMode: boolean;
 }
 
-
-//fetch info for this group of events here
+//represents an event group in schedule
 function FutureEventsEditableList(props:Props){
+
     const eventGroupName = props.eventGroupNameFromProp;
 
+    //fetch info for this group of events in this function
     const [futureEventNames, setFutureEventNames] = useState<string[]>([
         "Long Fist - Beginner Adult Women (B.A.W)",
         "Long Fist - Female Beginner Child (F.B.C)",
