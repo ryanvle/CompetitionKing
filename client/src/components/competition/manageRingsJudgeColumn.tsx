@@ -4,12 +4,13 @@ import { Link } from 'react-router-dom';
 
 interface Props{
     ringNumber: number;
+    judgesList: string[]
 }
 
 const ManageRingsJudgeColumn = (props:Props) => {
 
     //states
-    const [judges, setJudges] = useState<string[]>(["Brian Wang","Oey Chang", "Nicholas Sun", "Ryan Tang", "Bobby Riley"]);
+    const judges = props.judgesList
     const ringNumber =props.ringNumber;
 
     const [toggleEditJudges, setToggleEditJudges] = useState<boolean>(false);

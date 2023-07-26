@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import { dataSet } from './testDatasetForGrandChampion';
 import NamesandScores from './namesAndScores';
 import { competitor } from './currentlyGoingStaff';
@@ -25,33 +25,30 @@ const GrandChampionColumn = (props:Props) => {
 
 
     //fetch stuff
-    const [athleteList, setAthleteList] = useState<athlete[]>(dataSet);
+    const [athleteList, setAthleteList] = useState<athlete[]>([]);
 
-
-
-
+    //not fetched stuff
     const [filterIsOnMale, setFilterIsOnMale] = useState<boolean>(false);
     const [maleAgesSelected, setMaleAgesSelected] = useState<Map<ageType, boolean>>(new Map([
         ["Child", false],
         ["Kid", false],
         ["Teen", false],
         ["Adult", false],
-    ]))
+    ]));
     const [filterIsOnFemale, setFilterIsOnFemale] = useState<boolean>(false);
     const [femaleAgesSelected, setFemaleAgesSelected] = useState<Map<ageType, boolean>>(new Map([
         ["Child", false],
         ["Kid", false],
         ["Teen", false],
         ["Adult", false],
-    ]))
+    ]));
 
-
-    const [toggleEventExpanded, setToggleEventExpanded] = useState<boolean>(false);
+    useEffect(()=>{
+        setAthleteList(dataSet);
+    },[])
 
 
     const handleMaleAgeToggle = (selectedAge:ageType):void =>{
-
-
         const tempMap:Map<ageType, boolean> = new Map(maleAgesSelected);
         tempMap.set(selectedAge, !tempMap.get(selectedAge)); //sry kevin
         setMaleAgesSelected(tempMap);
@@ -77,18 +74,7 @@ const GrandChampionColumn = (props:Props) => {
         </button> //insert css so that selected and unselected look different
     );
 
-
-
-
-
-
-
-
-
-
     const handleFemaleAgeToggle = (selectedAge:ageType):void =>{
-
-
         const tempMap:Map<ageType, boolean> = new Map(femaleAgesSelected);
         tempMap.set(selectedAge, !tempMap.get(selectedAge)); //sry Kevin
         setFemaleAgesSelected(tempMap);
@@ -113,11 +99,6 @@ const GrandChampionColumn = (props:Props) => {
             style={{backgroundColor:"#999999"}}> {key}
         </button> //insert css so that selected and unselected look different
     );
-
-
-
-
-
 
 
     const listOfAthletesToCompetitor: competitor[] = []
@@ -151,18 +132,19 @@ const GrandChampionColumn = (props:Props) => {
     }
 
 
-
-
-    
     return (
         <div key={style} style={{margin:"20px"}}>
+        {/* TODO: get rid of style once css exists */}
             <h2>{style}</h2>
             <h4>Male</h4>
             {maleButtonsElements}
             <h4>Female</h4>
             {femaleButtonsElements}
             <h3>Rankings</h3>
-            <NamesandScores data={listOfAthletesToCompetitor}/>
+            <div className='scroll'>
+                <NamesandScores data={listOfAthletesToCompetitor}/>
+
+            </div>
         </div>
     )
 }

@@ -31,6 +31,7 @@ import Results from './pages/results'
 import FinishedEvents from './pages/competition/finishedEvents'
 import GrandChampion from './pages/competition/grandChampion'
 import Staff from './pages/competition/staff'
+import PublicView from './pages/competition/publicView'
 
 function App() {
 
@@ -85,6 +86,7 @@ function App() {
           <Route path='finishedEvents' element = {<FinishedEvents/>}/>
           <Route path='grandChampion' element = {<GrandChampion/>}/>
         </Route>
+        <Route path='competition/publicView' element = {<PublicView/>}/>
 
       </Routes>
     </>

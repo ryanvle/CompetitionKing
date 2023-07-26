@@ -17,7 +17,7 @@ function FutureEventEditable(props:Props){
     const [toggleEdit, setToggleEdit] = useState<boolean>(  );
     const [addPersonInputText, setAddPersonInputText] = useState<string>("");
 
-    const handleShowHideFutureCompetitors = (evt: React.MouseEvent<HTMLButtonElement>) => {
+    const handleShowHideFutureCompetitors = () => {
         setToggleEventExpanded(!toggleEventExpanded);
         setToggleEdit(false)
     }
@@ -44,11 +44,6 @@ function FutureEventEditable(props:Props){
         console.log("endpoint adds " + addPersonInputText)
         setAddPersonInputText("");
     }
-
-
-
-
-
 
 
 
@@ -80,9 +75,7 @@ function FutureEventEditable(props:Props){
 
     return(
         <div >
-            <button onClick={handleShowHideFutureCompetitors}
-
-             >
+            <button onClick={handleShowHideFutureCompetitors}>
                 {EventName}&emsp;&emsp; {nameList.length}/{nameList.length}
             </button>
             <button onClick={handleToggleEdit } >/</button>

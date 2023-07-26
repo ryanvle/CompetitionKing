@@ -1,4 +1,4 @@
-import { ChangeEvent, useState, useId} from "react";
+import { ChangeEvent, useEffect, useState} from "react";
 import FutureEventsList from "../../components/competition/futureEventsList";
 import { Link } from "react-router-dom";
 import CurrentlyGoing from "../../components/competition/currentlyGoing";
@@ -17,16 +17,8 @@ function Judge(){
     // const [category, setCategory] = useState<string>("Advanced Female fiveStance");
     // const [competitorIndex, setCompetitorIndex] = useState<number>(2);
 
-    const [futureEventNames, setFutureEventNames] = useState<string[]>([
-        "Advanced Adult Female Changquan",
-        "Advanced Adult Female DaoShu",
-        "Advanced Adult Female GunShu",
-    ])
-    const [futureEventsCompetitors, setFutureEventsCompetitors] = useState<string[][]>([
-        ["Qoey","Woey","Roey","Toey",],
-        ["Yoey","Poey","Soey","Loey",],
-        ["Foey","Goey","Hoey","Joey",],
-    ])
+    const [futureEventNames, setFutureEventNames] = useState<string[]>([]);
+    const [futureEventsCompetitors, setFutureEventsCompetitors] = useState<string[][]>([[]]);
 
 
 
@@ -34,6 +26,18 @@ function Judge(){
 
     //when getting load endpoint, set showHide to array of false of length of futureEvents
 
+    useEffect(()=>{
+        setFutureEventNames([
+            "Advanced Adult Female Changquan",
+            "Advanced Adult Female DaoShu",
+            "Advanced Adult Female GunShu",
+        ]);
+        setFutureEventsCompetitors([
+            ["Qoey","Woey","Roey","Toey",],
+            ["Yoey","Poey","Soey","Loey",],
+            ["Foey","Goey","Hoey","Joey",],
+        ])
+    },[]);
 
     //HANDLE EVENT FUNCTIONS
     const handleScoreInput = (evt: ChangeEvent<HTMLInputElement>):void => {

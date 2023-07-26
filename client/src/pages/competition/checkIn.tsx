@@ -1,4 +1,4 @@
-import { ChangeEvent, useState} from "react";
+import {useEffect, ChangeEvent, useState} from "react";
 
 
 function CheckIn(){
@@ -6,7 +6,7 @@ function CheckIn(){
     //athlete info
     const [competitorName, setCompetitorName] = useState<string>("Oey Chang");
     const [gender, setGender] = useState<string>("Male");
-    const [level, setLevel] = useState<string>("Advanced");
+    const [level, setLevel] = useState<string>("Beginner");
     const [age, setAge] = useState<string>("Adult");
     const [events, setEvents] = useState<string>("101, 104, 105");
     const [grandChampionElligible, setGrandChampionElligible] = useState<string>("Yes");
@@ -15,6 +15,17 @@ function CheckIn(){
     const [searchInput, setSearchInput] = useState<string>("");
     const [showAthelete, setShowAthlete] = useState<boolean>(false);
     const [checkInButtonIsDisabled, setCheckInButtonIsDisabled] = useState<boolean>(true);
+
+
+    useEffect(()=>{
+        setCompetitorName("Oey Chang");
+        setGender("Male");
+        setLevel("Advanced");
+        setAge("Adult");
+        setEvents("101, 104, 105");
+        setGrandChampionElligible("Yes");
+    },[]);
+
 
     const handleSearchInput = (evt: ChangeEvent<HTMLInputElement>):void => {
         setSearchInput(evt.target.value);

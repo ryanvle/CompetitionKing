@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import FutureEventsEditableList from "../../components/competition/futureEventsEditableList";
 
@@ -26,7 +26,7 @@ function Schedule(){
     }
 
     //idk oey what does this button do again ?
-    const handlePublishSchedule =(evt: React.MouseEvent<HTMLButtonElement>):void =>{
+    const handlePublishSchedule =():void =>{
         //fetch something?
         console.log("publish shit")
     }
@@ -37,35 +37,47 @@ function Schedule(){
     //ALL THIS STUFF WAS THE STUFF THAT USED TO BE INSIDE A COLUMN
 
     //these states need to be updated in fetch!!!
-    const [eventGroups, setEventGroups] = useState<string[]>
-        ([
-            "Long Fist - International Compulsory Form (101)",
-            "Long Fist - International Compulsory Form (101)",
-            "Long Fist - International Compulsory Form (101)",
-            "Long Fist - International Compulsory Form (101)",
-        ]);
+    const [eventGroups, setEventGroups] = useState<string[]>([]);
 
     //for the info at the top div
-    const [ringLevel, setRingLevel] = useState<string>("Beginner/Intermediate");
-    const [startTime, setStartTime] = useState<string>("0:00");
+    const [ringLevel, setRingLevel] = useState<string>("");
+    const [startTime, setStartTime] = useState<string>("");
 
 
     //these states dont need to be changed in the initial fetch
-    const [toggleEdit, setToggleEdit] = useState<boolean>(false);
-    const eventIsSelectedBuilder:boolean[] = new Array<boolean>(eventGroups.length).fill(false);
+    const [toggleMoveRingEdit, setToggleMoveRingEdit] = useState<boolean>(false);
+
     //indecies match event groups - describes if a group is selected to be sent to another ring
-    const [groupIsSelected, setGroupIsSelected] = useState<boolean[]>(eventIsSelectedBuilder);
+    const [groupIsSelected, setGroupIsSelected] = useState<boolean[]>([]);
+
+
+    useEffect(() => {
+
+        const dataForEventGroups: string[] = [
+            "Long Fist - International Compulsory Form (101)",
+            "Long Fist - International Compulsory Form (101)",
+            "Long Fist - International Compulsory Form (101)",
+            "Long Fist - International Compulsory Form (101)",
+        ]
+
+        setRingCount(3);
+        setEventGroups(dataForEventGroups);
+        setRingLevel("Beginner/Intermediate");
+        setStartTime("0:00");
+
+
+        const eventIsSelectedBuilder:boolean[] = new Array<boolean>(dataForEventGroups.length).fill(false);
+        setGroupIsSelected(eventIsSelectedBuilder);
+    }, [])
+
 
 
     //update groupIsSelected when someone clicks on a group to send to another ring
-    const handleGroupSelected = (evt: React.MouseEvent<HTMLButtonElement>):void =>{
-        if(toggleEdit){
+    const handleGroupSelected = (targetIndex:number):void =>{
+        if(toggleMoveRingEdit){
             let temp: boolean[] =  new Array<boolean>(eventGroups.length).fill(true);;
             for(let i = 0; i < groupIsSelected.length; i++){
-                if(!("value" in evt.target) || typeof evt.target.value != "string"){
-                    throw Error;
-                }
-                if(i == Number.parseInt(evt.target.value)){
+                if(i === targetIndex){
                     temp[i]=(!groupIsSelected[i])
                 }else{
                     temp[i]=(groupIsSelected[i])
@@ -78,20 +90,19 @@ function Schedule(){
 
     //go in/out of edit mode for moving to ring
     const handleToggleEdit = ():void =>{
-        setToggleEdit(!toggleEdit)
+        setToggleMoveRingEdit(!toggleMoveRingEdit)
     }
 
     //go out of edit mode
     const handleCancelEdit = ():void =>{
-        setToggleEdit(false)
+        setToggleMoveRingEdit(false)
     }
 
     //FETCH ENDPOINT send group to another ring
-    const handleSendToOtherRing = (evt: React.MouseEvent<HTMLButtonElement>):void =>{
-        if(!("value" in evt.target)|| typeof evt.target.value!=="string" ){
-            throw Error;
-        }
-        console.log("endpoint handles send to ring " + evt.target.value)
+    const handleSendToOtherRing = (otherRingNumber:number):void =>{
+
+        console.log("endpoint handles send to ring " + otherRingNumber);
+        handleToggleEdit();
     }
 
     //make the Groups elements
@@ -104,7 +115,7 @@ function Schedule(){
             ringNumber={ringNumber}
             eventGroupNameFromProp = {eventGroups[i]}
             onClickFunction = {handleGroupSelected}
-            inSelectMode = {toggleEdit}
+            inSelectMode = {toggleMoveRingEdit}
             isSelected = {groupIsSelected[i]}
             indexForSelect= {i}
         />)
@@ -118,7 +129,7 @@ function Schedule(){
 
     //how many groups selected for the little text under
     let numberSelected:number = 0;
-    for (var item of groupIsSelected){
+    for (let item of groupIsSelected){
         if (item) {
             numberSelected++;
         }
@@ -126,8 +137,8 @@ function Schedule(){
 
     //make all buttons for editing at the bottom
     const moveToRingButtons:JSX.Element[] = []
-    for(var otherRingNumber of otherRingNumbers){
-        moveToRingButtons.push(<button value={otherRingNumber} onClick={handleSendToOtherRing} key={otherRingNumber}>Send to ring {otherRingNumber}</button>)
+    for(let otherRingNumber of otherRingNumbers){
+        moveToRingButtons.push(<button onClick={() => {handleSendToOtherRing(otherRingNumber)}} key={otherRingNumber}>Send to ring {otherRingNumber}</button>)
     }
 
     const moveButton:JSX.Element = numberSelected>0?
@@ -139,7 +150,7 @@ function Schedule(){
     <><p>Select the groups you want to move</p></>
 
     let editModeBottomButtons:JSX.Element;
-    if(toggleEdit){
+    if(toggleMoveRingEdit){
         editModeBottomButtons=
             <div>
                 {moveButton}
@@ -161,7 +172,7 @@ function Schedule(){
     }
 
     return(
-        <>
+        <div>
 
             {switchRingElements}
 
@@ -188,7 +199,7 @@ function Schedule(){
             {/* <button><Link to={"/competition/tv"}> TV Mode</Link></button> */}
             <button onClick={handlePublishSchedule}>Publish All Schedules</button>
 
-        </>
+        </div>
     );
 
 }

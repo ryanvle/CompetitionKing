@@ -24,7 +24,7 @@ function EventInfo(){
         setEventRules(fillerOne);
         setFees(fillerOne);
 
-        }, [])
+    }, [])
 
     return(
         <div>

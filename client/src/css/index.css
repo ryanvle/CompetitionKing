@@ -139,7 +139,7 @@ li{
   height: 32rem;
 }
 .heroButt{
-  margin: 0 3rem; 
+  margin: 0 3rem;
 }
 .sect{
   display: flex;
@@ -159,4 +159,12 @@ li{
   button {
     background-color: #f9f9f9;
   }
+}
+
+
+
+div.scroll {
+  width: 600px;
+  height: 150px;
+  overflow-x: hidden;
 }

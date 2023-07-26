@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import NamesandScores from './namesAndScores';
+import NameAndScoreSingle from './nameAndScoreSingle';
 
 interface Props{
     ringNumber:number
@@ -70,9 +71,8 @@ const CurrentlyGoingStaff = (props:Props) => {
                 /{competitorsDoneData.length+futureCompetitors.length}
             </h4>
             <br/>
-            {competitorsDoneData[currentCompetitorIndex].name}
+            <NameAndScoreSingle data={competitorsDoneData[currentCompetitorIndex]}/>
             <br/>
-            <NamesandScores data={[competitorsDoneData[currentCompetitorIndex]]}/>
             {remainingCompetitorsListElement}
             <h3>Rankings</h3>
             <NamesandScores data={sortedData}/>

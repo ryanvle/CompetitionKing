@@ -2,7 +2,6 @@ import FinishedEventsColumn from "../../components/competition/finishedEventsCol
 
 
 const FinishedEvents = () => {
-    
 
 
     return (

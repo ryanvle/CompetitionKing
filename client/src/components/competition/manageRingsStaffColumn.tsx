@@ -4,23 +4,22 @@ import { Link } from 'react-router-dom';
 
 interface Props{
     ringNumber: number;
+    staffList: string[]
 }
 
 const ManageRingsStaffColumn = (props:Props) => {
 
-    //
-    const [staff, setStaff] = useState<string[]>(["Oey Chang", "Nicholas Sun", "Ryan Tang", "Bobby Riley"]);
+
+
+    const staff: string[] = props.staffList;
     const ringNumber =props.ringNumber;
+
 
     const [toggleEditStaff, setToggleEditStaff] = useState<boolean>(false);
     const staffIsBeingRenamedBuilder:boolean[] = new Array<boolean>(staff.length).fill(false);
     const [staffIsBeingRenamed, setStaffIsBeingRenamed] = useState<boolean[]>(staffIsBeingRenamedBuilder);
     const [staffRenamingTextInput, setStaffRenamingTextInput] = useState<string>("");
-    [
-        ["Oey Chang", "Nicholas Sun", "Ryan Tang", "Bobby Riley"],
-        ["BOey Chang", "Bicholas Sun", "Byan Tang", "Bobby Riley"],
-        ["COey Chang", "Cicholas Sun", "Cyan Tang", "Cobby Riley"],
-    ]
+
 
     const handleToggleEditStaff = ():void =>{
         setToggleEditStaff(!toggleEditStaff)

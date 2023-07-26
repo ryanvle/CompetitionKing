@@ -1,15 +1,14 @@
 import { competitor } from './currentlyGoingStaff';
 
 interface Props{
-    data: competitor[];
+    data: competitor;
 }
 
 //makes a list of names and scores for an event
-const NamesandScores = (props:Props) => {
-    const competitorData: competitor[] = props.data;
+const NameAndScoreSingle = (props:Props) => {
+    const competitorData: competitor = props.data;
     const doneNameAndScoresElement: JSX.Element[] =[];
-    for (let i = 0; i<competitorData.length; i++){
-        let currCompetitor:competitor = competitorData[i]
+        let currCompetitor:competitor = competitorData
 
         //make scores elements
         let scoresElements:JSX.Element[]=[]
@@ -33,11 +32,11 @@ const NamesandScores = (props:Props) => {
 
 
         doneNameAndScoresElement.push(
-            <div key={i}>
-                <p>{i+1}.  {competitorData[i].name}</p>
+            <div>
+                <p>  {competitorData.name}</p>
                 {scoresElements}
             </div>)
-    }
+    
 
 
   return (
@@ -47,4 +46,4 @@ const NamesandScores = (props:Props) => {
   )
 }
 
-export default NamesandScores
+export default NameAndScoreSingle

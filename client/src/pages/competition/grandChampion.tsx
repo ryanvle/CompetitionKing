@@ -1,4 +1,3 @@
-import React from 'react'
 import GrandChampionColumn from '../../components/competition/grandChampionColumn'
 
 const GrandChampion = () => {

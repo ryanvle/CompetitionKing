@@ -1,5 +1,4 @@
-import { ChangeEvent, useState, useId} from "react";
-import FutureEvent from "../../components/competition/futureEvents";
+import { ChangeEvent, useEffect, useState} from "react";
 import CurrentlyGoing from "../../components/competition/currentlyGoing";
 import FutureEventsList from "../../components/competition/futureEventsList";
 import { Link } from "react-router-dom";
@@ -13,8 +12,8 @@ function HeadJudge(){
 
 
     //States that are gonna be changed by endpoint
-    const [judgesList, setJudgesList] = useState<string[]>(["Oey","Nicholas","Ryan","Brian"]); 
-    const [judgeScores, setjudgeScores] = useState<number[]>([7.8, 7.9, 7.85,7.75]);
+    const [judgesList, setJudgesList] = useState<string[]>([]);
+    const [judgeScores, setjudgeScores] = useState<number[]>([]);
 
 
 
@@ -22,20 +21,26 @@ function HeadJudge(){
     const [showAverageScore, setShowAverageScore] = useState<boolean>(false);
 
 
-    // const [competitors, setCompetitors] = useState<string[]>(["Oey","Boey","Joey","Chloey"]); 
-    // const [category, setCategory] = useState<string>("Advanced Female fiveStance");
+    // const [competitors, setCompetitors] = useState<string[]>(["Oey","Boey","Joey","Chloey"]);    // const [category, setCategory] = useState<string>("Advanced Female fiveStance");
 
-    const [futureEventNames, setFutureEventNames] = useState<string[]>([
-        "Advanced Adult Female Changquan",
-        "Advanced Adult Female DaoShu",
-        "Advanced Adult Female GunShu",
-    ])
-    const [futureEventsCompetitors, setFutureEventsCompetitors] = useState<string[][]>([
-        ["Qoey","Woey","Roey","Toey",],
-        ["Yoey","Poey","Soey","Loey",],
-        ["Foey","Goey","Hoey","Joey",],
-    ])
+    const [futureEventNames, setFutureEventNames] = useState<string[]>([])
+    const [futureEventsCompetitors, setFutureEventsCompetitors] = useState<string[][]>([])
 
+
+    useEffect(()=>{
+        setJudgesList(["Oey","Nicholas","Ryan","Brian"]);
+        setjudgeScores([7.8, 7.9, 7.85,7.75]);
+        setFutureEventNames([
+            "Advanced Adult Female Changquan",
+            "Advanced Adult Female DaoShu",
+            "Advanced Adult Female GunShu",
+        ]);
+        setFutureEventsCompetitors([
+            ["Qoey","Woey","Roey","Toey",],
+            ["Yoey","Poey","Soey","Loey",],
+            ["Foey","Goey","Hoey","Joey",],
+        ]);
+    },[]);
 
 
     const [scoreInput, setScoreInput] = useState<string>("");
@@ -110,7 +115,7 @@ function HeadJudge(){
     )
     const showAveragePopupElement: JSX.Element = showAverageScore? <span
                 style={{"position": "absolute",
-                        "backgroundColor": "#000"}}
+                        "backgroundColor": "#fff"}}
                 id="myPopup">
                     {averageScore}
             </span>: <></>

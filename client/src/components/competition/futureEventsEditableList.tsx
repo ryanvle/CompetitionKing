@@ -1,10 +1,10 @@
-import {  useState} from "react";
+import {  useEffect, useState} from "react";
 import FutureEventEditable from "./futureEventsEditable";
 
 interface Props{
     ringNumber:number;
     eventGroupNameFromProp: string
-    onClickFunction: (evt: React.MouseEvent<HTMLButtonElement>)=>void;
+    onClickFunction: (targetIndex:number)=>void;
     isSelected: boolean;
     indexForSelect:number;
     inSelectMode: boolean;
@@ -16,34 +16,40 @@ function FutureEventsEditableList(props:Props){
     const eventGroupName = props.eventGroupNameFromProp;
 
     //fetch info for this group of events in this function
-    const [futureEventNames, setFutureEventNames] = useState<string[]>([
-        "Long Fist - Beginner Adult Women (B.A.W)",
-        "Long Fist - Female Beginner Child (F.B.C)",
-        "Long Fist - Female Beginner Child (F.B.C)",
-        "Long Fist - Female Beginner Child (F.B.C)",
-    ])
-    const [futureEventsCompetitors, setFutureEventsCompetitors] = useState<string[][]>([
-        ["Qoey","Woey","Roey","Toey",],
-        ["Yoey","Poey","Soey","Loey",],
-        ["Foey","Goey","Hoey","Joey",],
-    ])
+    const [futureEventNames, setFutureEventNames] = useState<string[]>([]);
+    const [futureEventsCompetitors, setFutureEventsCompetitors] = useState<string[][]>([]);
 
 
     const [eventsShown, setEventsShown] = useState<boolean>(false);
 
 
 
-    const handleToggleShowEvents =(evt: React.MouseEvent<HTMLButtonElement>):void=>{
+    useEffect(()=>{
+        setFutureEventNames([
+            "Long Fist - Beginner Adult Women (B.A.W)",
+            "Long Fist - Female Beginner Child (F.B.C)",
+            "Long Fist - Female Beginner Child (F.B.C)",
+            "Long Fist - Female Beginner Child (F.B.C)",
+        ]);
+
+        setFutureEventsCompetitors([
+            ["Qoey","Woey","Roey","Toey",],
+            ["Yoey","Poey","Soey","Loey",],
+            ["Foey","Goey","Hoey","Joey",],
+        ]);
+    },[])
+
+    const handleToggleShowEvents =(indexForSelect:number):void=>{
         if(! props.inSelectMode){
             setEventsShown(!eventsShown);
         }
-        props.onClickFunction(evt);
+        props.onClickFunction(indexForSelect);
     }
 
 
 
     const selectedBorder = props.isSelected && props.inSelectMode?
-    {border: '2px solid #DFC5FE' }: {}
+    {border: '2px solid #DFC5FE' }: {};
 
 
 
@@ -63,15 +69,14 @@ function FutureEventsEditableList(props:Props){
         }
     }
 
-    
 
 
     return(
         <div>
 
-            <h2> <button onClick={handleToggleShowEvents}
-            value= {props.indexForSelect} id={eventGroupName+"r"} style={selectedBorder}
-            >{eventGroupName} &emsp;&emsp; v</button></h2>
+            <h3> <button onClick={() =>{handleToggleShowEvents(props.indexForSelect)}}
+             id={eventGroupName+"r"} style={selectedBorder}
+            >{eventGroupName} &emsp;&emsp; v</button></h3>
 
             {EventsListElement}
         </div>
