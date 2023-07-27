@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import FutureEventsList from '../../components/competition/futureEventsList';
 import CurrentlyGoingStaff, { competitor } from '../../components/competition/currentlyGoingStaff';
-import DoneList from '../../components/competition/doneList';
 import DoneEvent from '../../components/competition/doneEvent';
 
 export type wushuEvent= {

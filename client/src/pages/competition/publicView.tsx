@@ -1,10 +1,12 @@
-import React from 'react'
+
 import FinishedEvents from './finishedEvents'
 import GrandChampion from './grandChampion'
+import SchedulePublic from '../../components/competition/schedulePublic'
 
 const PublicView = () => {
   return (
     <div>
+        <SchedulePublic/>
         <FinishedEvents />
         <GrandChampion />
 

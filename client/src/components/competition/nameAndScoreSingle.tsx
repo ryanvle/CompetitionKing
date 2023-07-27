@@ -4,7 +4,7 @@ interface Props{
     data: competitor;
 }
 
-//makes a list of names and scores for an event
+//makes a name and score thing. rn only used in staff
 const NameAndScoreSingle = (props:Props) => {
     const competitorData: competitor = props.data;
     const doneNameAndScoresElement: JSX.Element[] =[];

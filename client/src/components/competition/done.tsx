@@ -12,15 +12,15 @@ interface Props{
 
 function Done(props:Props){
 
-    
 
-    
-    const [showNames, setShowNames] = useState<boolean>(false); 
-    const [nameList] = useState<CompetitorAndScore[]>(props.nameList); 
-    const [EventName] = useState<string>(props.eventName); 
 
-    
-    const handleShowHideDoneCompetitors = () => { 
+
+    const [showNames, setShowNames] = useState<boolean>(false);
+    const [nameList] = useState<CompetitorAndScore[]>(props.nameList);
+    const [EventName] = useState<string>(props.eventName);
+
+
+    const handleShowHideDoneCompetitors = () => {
         setShowNames(!showNames);
     }
 
@@ -36,7 +36,7 @@ function Done(props:Props){
         }
 
 
-        
+
 
 
 
