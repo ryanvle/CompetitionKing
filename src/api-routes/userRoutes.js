@@ -3,7 +3,6 @@ const dbusers = require("../services/Users")
 const router = express.Router();
 
 router.post('/CreateNewUser', async function (req, res) {
-
     res.send(await dbusers.CreateNewUser(req.query["gender"],
                                          req.query["level"],
                                          req.query["Grand_Entry"],
@@ -18,7 +17,7 @@ router.post('/CreateNewUser', async function (req, res) {
 });
 
 router.get('/GetAllUsers', async function (req, res) {
-    res.send(await dbusers.GetAllUsers());
+    res.send(await dbusers.GetAllUsers())
 });
 
 router.post('/CreateAdminUser', function (req, res) {

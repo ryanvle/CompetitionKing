@@ -8,6 +8,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(require('req-sanitizer')());
 
+app.use(express.urlencoded())
+app.use(express.json())
 
 app.use('/users', userRoutes);
 app.use('/Competition', CompetitionRoutes)

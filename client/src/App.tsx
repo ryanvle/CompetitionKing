@@ -1,7 +1,11 @@
 // import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
+<<<<<<< HEAD
 import './App.css'
+=======
+import { Link } from 'react-router-dom'
+>>>>>>> 86cbb794e93a42c5c1b853b120a7033cf86b6690
 import {Routes, Route} from 'react-router-dom'
 import Home from './pages/home'
 import SignUp from './pages/signUp'
@@ -22,14 +26,44 @@ import Rings from './pages/createCompetition/rings'
 import Rules from './pages/createCompetition/rules'
 import HeadJudge from './pages/competition/headJudge'
 import Judge from './pages/competition/judge'
+<<<<<<< HEAD
 import RingAdmin from './pages/competition/ringAdmin'
 import RingJudgeAdmin from './pages/competition/ringJudgeAdmin'
 import Tv from './pages/competition/tv'
+=======
+import Schedule from './pages/competition/schedule'
+// import Tv from './pages/competition/tv'
+import CheckIn from './pages/competition/checkIn'
+import EventInfo from './pages/competition/eventInfo'
+import ManageRings from './pages/competition/manageRings'
+import Results from './pages/results'
+import FinishedEvents from './pages/competition/finishedEvents'
+import GrandChampion from './pages/competition/grandChampion'
+import Staff from './pages/competition/staff'
+import PublicView from './pages/competition/publicView'
+>>>>>>> 86cbb794e93a42c5c1b853b120a7033cf86b6690
 
 function App() {
 
   return (
     <>
+<<<<<<< HEAD
+=======
+      <nav>
+        <div className='navRight'>
+          <Link to=""><img></img>Competition Kings</Link>
+        </div>
+        <div className='navLeft'>
+          <li className='navSec'><Link to="">Home</Link></li>
+          <li className='navSec'><Link to="">About Us</Link></li>
+          <li className='navSec'><Link to="">Events</Link></li>
+          <li className='navSec'><Link to="">Login</Link></li>
+          <li className='navSec'><Link to="">LANG</Link></li>
+        </div>
+      </nav>
+
+
+>>>>>>> 86cbb794e93a42c5c1b853b120a7033cf86b6690
       <Routes>
         <Route index element = {<Home/>}/>
         <Route path='/signUp' element = {<SignUp/>}/>
@@ -52,12 +86,29 @@ function App() {
         </Route>
 
         <Route path='/competition' element = {<Competition/>}>
+<<<<<<< HEAD
           <Route path='headJudge' element = {<HeadJudge/>}/>
           <Route path='judge' element = {<Judge/>}/>
           <Route path='ringAdmin' element = {<RingAdmin/>}/>
           <Route path='ringJudgeAdmin' element = {<RingJudgeAdmin/>}/>
           <Route path='tv' element = {<Tv/>}/>
         </Route>
+=======
+          <Route path='eventInfo' element = {<EventInfo/>}/>
+          <Route path='schedule' element = {<Schedule/>}/>
+          <Route path='manageRings' element = {<ManageRings/>}/>
+          <Route path='checkIn' element = {<CheckIn/>}/>
+          {/* <Route path='tv' element = {<Tv/>}/> */}
+        </Route>
+        <Route path='/competition/headJudge' element = {<HeadJudge/>}/>
+        <Route path='competition/judge' element = {<Judge/>}/>
+        <Route path='competition/staff' element = {<Staff/>}/>
+        <Route path='competition/results' element = {<Results/>}>
+          <Route path='finishedEvents' element = {<FinishedEvents/>}/>
+          <Route path='grandChampion' element = {<GrandChampion/>}/>
+        </Route>
+        <Route path='competition/publicView' element = {<PublicView/>}/>
+>>>>>>> 86cbb794e93a42c5c1b853b120a7033cf86b6690
 
       </Routes>
     </>

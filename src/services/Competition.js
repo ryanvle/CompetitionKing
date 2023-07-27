@@ -1,4 +1,6 @@
 const connection = require('./SqlConnection')
+
+
 const CreateNewCompetition = async (name, desc, fees,) => {
     try {
         console.log("name: ", name);
@@ -7,8 +9,8 @@ const CreateNewCompetition = async (name, desc, fees,) => {
         await connection.promise().query('select * from defaultdb.tblPERSON');
     } catch(e) {
         return (e);
-    }
 }
+
 const DeleteCompetition = async () => {
     return "Not created";
 }
@@ -17,4 +19,4 @@ const DeleteCompetition = async () => {
 module.exports = {
     CreateNewCompetition,
     DeleteCompetition,
-};
+}};
