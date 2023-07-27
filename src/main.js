@@ -2,6 +2,11 @@ const express = require("express")
 const app = express()
 const userRoutes = require('./api-routes/userRoutes')
 const CompetitionRoutes = require('./api-routes/CompetitionRoutes')
+let bodyParser = require('body-parser')
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(require('req-sanitizer')());
 
 app.use(express.urlencoded())
 app.use(express.json())

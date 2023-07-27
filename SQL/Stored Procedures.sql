@@ -17,6 +17,7 @@ BEGIN
 
 	START TRANSACTION;
     
+    INSERT INTO defaultdb.tblPERSON (GenderID, LevelID, FirstName, LastName, Age, Email)
     INSERT INTO tblPERSON (GenderID, LevelID, FirstName, LastName, Age, Email)
     VALUES (p_G_ID, p_L_ID, p_FirstName, p_LastName, p_Age, p_Email);
     
