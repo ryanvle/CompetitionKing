@@ -74,12 +74,25 @@ function FutureEventEditable(props:Props){
 
 
     return(
-        <div >
-            <button onClick={handleShowHideFutureCompetitors}>
-                {EventName}&emsp;&emsp; {nameList.length}/{nameList.length}
-            </button>
-            <button onClick={handleToggleEdit } >/</button>
-            <br/>
+        <div className="bordered">
+            <p>
+                {EventName}&emsp;&emsp; {nameList.length}/{nameList.length} &emsp;
+                <img
+                    className="showHideIcon"
+                    onClick={handleToggleEdit}
+                    src="../src/assets/IconLibrary/🦆 icon _edit_.png"
+                />
+                &emsp; &emsp;
+                <img
+                    onClick={handleShowHideFutureCompetitors}
+                    className="showHideIcon"
+                    src="../src/assets/IconLibrary/navRightArrow.png"
+                    style={{
+                        transform: "rotate("+ (toggleEventExpanded? 90: -90) +"deg)"}}
+                />
+            </p>
+
+            {/* <br/> */}
             {temp}
         </div>
     );

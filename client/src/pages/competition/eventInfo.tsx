@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 
-
+/**
+ * TODO css-
+ *  flex box shit
+ *  div the boxes
+ *  add the icons for location and calander
+ */
 function EventInfo(){
 
     const [eventName, setEventName] = useState<string>();
@@ -27,26 +32,26 @@ function EventInfo(){
     }, [])
 
     return(
-        <div>
+        <div className="bordered">
             <h1>Event Information</h1>
             <div>
-                <h2>{eventName}</h2>
+                <h3>{eventName}</h3>
                 <p>{address}</p>
                 <p>{date}</p>
             </div>
 
-            <div>
-                <h2>Description</h2>
+            <div className="bordered">
+                <h3>Description</h3>
                 <p>{description }</p>
             </div>
 
-            <div>
-                <h2>Event Rules</h2>
+            <div className="bordered">
+                <h3>Event Rules</h3>
                 <p>{eventRules}</p>
             </div>
 
-            <div>
-                <h2>Event Fees</h2>
+            <div className="bordered">
+                <h3>Event Fees</h3>
                 <p>{fees}</p>
             </div>
         </div>

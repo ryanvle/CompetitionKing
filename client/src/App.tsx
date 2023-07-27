@@ -1,11 +1,7 @@
 // import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
-<<<<<<< HEAD
-import './App.css'
-=======
 import { Link } from 'react-router-dom'
->>>>>>> 86cbb794e93a42c5c1b853b120a7033cf86b6690
 import {Routes, Route} from 'react-router-dom'
 import Home from './pages/home'
 import SignUp from './pages/signUp'
@@ -26,11 +22,6 @@ import Rings from './pages/createCompetition/rings'
 import Rules from './pages/createCompetition/rules'
 import HeadJudge from './pages/competition/headJudge'
 import Judge from './pages/competition/judge'
-<<<<<<< HEAD
-import RingAdmin from './pages/competition/ringAdmin'
-import RingJudgeAdmin from './pages/competition/ringJudgeAdmin'
-import Tv from './pages/competition/tv'
-=======
 import Schedule from './pages/competition/schedule'
 // import Tv from './pages/competition/tv'
 import CheckIn from './pages/competition/checkIn'
@@ -41,14 +32,11 @@ import FinishedEvents from './pages/competition/finishedEvents'
 import GrandChampion from './pages/competition/grandChampion'
 import Staff from './pages/competition/staff'
 import PublicView from './pages/competition/publicView'
->>>>>>> 86cbb794e93a42c5c1b853b120a7033cf86b6690
 
 function App() {
 
   return (
     <>
-<<<<<<< HEAD
-=======
       <nav>
         <div className='navRight'>
           <Link to=""><img></img>Competition Kings</Link>
@@ -63,7 +51,6 @@ function App() {
       </nav>
 
 
->>>>>>> 86cbb794e93a42c5c1b853b120a7033cf86b6690
       <Routes>
         <Route index element = {<Home/>}/>
         <Route path='/signUp' element = {<SignUp/>}/>
@@ -86,14 +73,6 @@ function App() {
         </Route>
 
         <Route path='/competition' element = {<Competition/>}>
-<<<<<<< HEAD
-          <Route path='headJudge' element = {<HeadJudge/>}/>
-          <Route path='judge' element = {<Judge/>}/>
-          <Route path='ringAdmin' element = {<RingAdmin/>}/>
-          <Route path='ringJudgeAdmin' element = {<RingJudgeAdmin/>}/>
-          <Route path='tv' element = {<Tv/>}/>
-        </Route>
-=======
           <Route path='eventInfo' element = {<EventInfo/>}/>
           <Route path='schedule' element = {<Schedule/>}/>
           <Route path='manageRings' element = {<ManageRings/>}/>
@@ -108,7 +87,6 @@ function App() {
           <Route path='grandChampion' element = {<GrandChampion/>}/>
         </Route>
         <Route path='competition/publicView' element = {<PublicView/>}/>
->>>>>>> 86cbb794e93a42c5c1b853b120a7033cf86b6690
 
       </Routes>
     </>

@@ -2,6 +2,13 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import FutureEventsEditableList from "../../components/competition/futureEventsEditableList";
 
+
+/**
+ * TODO css -
+ *   flexbox shit
+ *   fix ring buttons on the top
+ * 
+ */
 function Schedule(){
 
 
@@ -95,11 +102,15 @@ function Schedule(){
 
     //go out of edit mode
     const handleCancelEdit = ():void =>{
+        const eventIsSelectedBuilder:boolean[] = new Array<boolean>(eventGroups.length).fill(false);
+        setGroupIsSelected(eventIsSelectedBuilder);
         setToggleMoveRingEdit(false)
     }
 
     //FETCH ENDPOINT send group to another ring
     const handleSendToOtherRing = (otherRingNumber:number):void =>{
+        const eventIsSelectedBuilder:boolean[] = new Array<boolean>(eventGroups.length).fill(false);
+        setGroupIsSelected(eventIsSelectedBuilder);
 
         console.log("endpoint handles send to ring " + otherRingNumber);
         handleToggleEdit();
@@ -163,7 +174,7 @@ function Schedule(){
     }
 
 
-
+    //buttons to change rings
     const switchRingElements: JSX.Element[] = []
     for (let i = 1; i <= ringCount; i++){
         switchRingElements.push(
@@ -177,7 +188,7 @@ function Schedule(){
             {switchRingElements}
 
             <div>
-                <div>
+                <div className="bordered">
                     <h2>Ring {ringNumber} Schedule</h2>
                     <p><strong>Ring Level: </strong>{ringLevel}</p>
                     <p><strong>Start Time: </strong>{startTime}</p>
@@ -188,7 +199,10 @@ function Schedule(){
 
                 </div>
 
-                {EventGroupsListElement}
+                <h3> Up Next: </h3>
+                <div> {/*bordered*/}
+                    {EventGroupsListElement}
+                </div>
 
                 {editModeBottomButtons}
             </div>

@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState, useEffect } from "react";
 
 interface Props{
     ringNumber:number;
@@ -10,13 +10,25 @@ function CurrentlyGoing(props:Props){
 
     const ringNumber =props.ringNumber;
 
-    const [category, setCategory] = useState<string>("male advanced teen nanquan");
-    const [currentCommpetitors, setCurrentCompetitors] = useState<string[]>(["Oey","Boey","Joey","Stoey"]);
-    const [competitorScores, setCompetitorScores] = useState<number[]>([9.5]);
-    const [currentCompetitorIndex, setCurrentCompetitorIndex]= useState<number>(3);
+    const [category, setCategory] = useState<string>("");
+    const [currentCommpetitors, setCurrentCompetitors] = useState<string[]>([]);
+    const [competitorScores, setCompetitorScores] = useState<number[]>([]);
+    const [currentCompetitorIndex, setCurrentCompetitorIndex]= useState<number>(1);
 
     const [toggleEdit, setToggleEdit] = useState<boolean>(false);
     const [addPersonInputText, setAddPersonInputText] = useState<string>("");
+
+    //fetchthatshit
+    useEffect(()=>{
+        ringNumber; //isused
+        setCategory("male advanced teen nanquan");
+        setCurrentCompetitors(["Oey","Boey","Joey","Stoey"]);
+        setCompetitorScores([9.5]);
+        setCurrentCompetitorIndex(3);
+    },[]);
+
+
+
 
     //handle functions
     const handleToggleEdit = ():void =>{
@@ -39,7 +51,7 @@ function CurrentlyGoing(props:Props){
         console.log(addPersonInputText)
     }
 
-    
+
     let currentCommpetitorsElement:JSX.Element[]=[];
     if(toggleEdit){
         for (let i =0; i < currentCommpetitors.length; i++){
@@ -55,7 +67,7 @@ function CurrentlyGoing(props:Props){
                     {item}  {score}
                     <button value={item} onClick={handleDeletePerson}>-</button></p>
             )
-            
+
         }
     }else{
         for (let i =0; i < currentCommpetitors.length; i++){
@@ -71,14 +83,14 @@ function CurrentlyGoing(props:Props){
                     {item}  {score}
                 </p>
             )
-            
+
         }
     }
-    
-    
+
+
     // = toggleEdit?
     //     currentCommpetitors.map(item => <p key={item}>
-    //         {item}  
+    //         {item}
     //         <button value={item} onClick={handleDeletePerson}>-</button></p>):
     //     currentCommpetitors.map(item => <p key={item}>{item}</p>)
 
@@ -93,11 +105,11 @@ function CurrentlyGoing(props:Props){
         <div >
             <h2> Currently going</h2>
             <h3>
-                {category} 
-                &emsp; 
-                {currentCompetitorIndex}/{currentCommpetitors.length} 
+                {category}
                 &emsp;
-                <button onClick={handleToggleEdit}>/</button>                
+                {currentCompetitorIndex}/{currentCommpetitors.length}
+                &emsp;
+                <button onClick={handleToggleEdit}>/</button>
             </h3>
             <h4></h4>
             {currentCommpetitorsElement}

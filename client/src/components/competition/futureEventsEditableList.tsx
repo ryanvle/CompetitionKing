@@ -1,6 +1,8 @@
 import {  useEffect, useState} from "react";
 import FutureEventEditable from "./futureEventsEditable";
 
+
+
 interface Props{
     ringNumber:number;
     eventGroupNameFromProp: string
@@ -49,7 +51,7 @@ function FutureEventsEditableList(props:Props){
 
 
     const selectedBorder = props.isSelected && props.inSelectMode?
-    {border: '2px solid #DFC5FE' }: {};
+    {border: '4px solid #646cff' }: {};
 
 
 
@@ -72,12 +74,23 @@ function FutureEventsEditableList(props:Props){
 
 
     return(
-        <div>
+        <div className="bordered">
+            <div
+                onClick={() =>{handleToggleShowEvents(props.indexForSelect)}}
+                style={selectedBorder}>
 
-            <h3> <button onClick={() =>{handleToggleShowEvents(props.indexForSelect)}}
-             id={eventGroupName+"r"} style={selectedBorder}
-            >{eventGroupName} &emsp;&emsp; v</button></h3>
-
+                <h3
+                id={eventGroupName+"r"}
+                >
+                    {eventGroupName} &emsp;&emsp;
+                    <img
+                        className="showHideIcon"
+                        src="../src/assets/IconLibrary/navRightArrow.png"
+                        style={{
+                            transform: "rotate("+ (eventsShown? 90: -90) +"deg)"}}
+                    />
+                </h3>
+            </div>
             {EventsListElement}
         </div>
     );

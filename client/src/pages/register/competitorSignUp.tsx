@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-
-
-function CompetitorSignUp(){
-    return(
-        <h1>CompetitorSignUp</h1>
-=======
 import { ChangeEvent, MouseEventHandler, useState } from "react";
 type style= {
     styleName: string;
@@ -43,7 +36,7 @@ function CompetitorSignUp(){
     }
  
     const handleStyleWushu =(evt: React.MouseEvent<HTMLButtonElement>):void=>{
-        console.log(evt.target.value);
+        // console.log(evt.target.value);
     }
 
 
@@ -97,7 +90,6 @@ function CompetitorSignUp(){
             <br/>
             <button onClick={handleNext}>Next</button>
         </div>
->>>>>>> 86cbb794e93a42c5c1b853b120a7033cf86b6690
     );
 
 }

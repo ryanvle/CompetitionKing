@@ -1,10 +1,4 @@
 
-<<<<<<< HEAD
-
-function Home(){
-    return(
-        <h1>home</h1>
-=======
 import { Link } from "react-router-dom";
 function Home(){
     return(
@@ -81,13 +75,8 @@ function Home(){
         <footer>@Copyright 2023 Compeition Kings. All rights reserved</footer>
 
         </>
->>>>>>> 86cbb794e93a42c5c1b853b120a7033cf86b6690
     );
 
 }
 
-<<<<<<< HEAD
-export default Home
-=======
 export default Home;
->>>>>>> 86cbb794e93a42c5c1b853b120a7033cf86b6690
